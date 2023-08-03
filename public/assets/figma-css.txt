@@ -1,0 +1,133 @@
+FIGMA
+
+Typography
+
+//styleName: Parrafo;
+font-family: Segoe UI;
+font-size: 24px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0em;
+text-align: left;
+
+background: #1C1C1C99;
+---------------------
+
+Párrafo
+
+width: 628px
+height: 96px
+--------------------
+
+Hero
+
+width: Fixed (1,291px)
+height: Hug (304px)
+top: 414px
+left: 219px
+justify: space-between
+---------------------
+
+Title
+
+width: 742px
+height: 64px
+
+//styleName: h1;
+font-family: Segoe UI;
+font-size: 48px;
+font-weight: 700;
+line-height: 64px;
+letter-spacing: 0em;
+text-align: left;
+
+background: #1C1C1C;
+---------------------
+
+Button
+
+width: Fixed (346px)
+height: Hug (64px)
+padding: 16px 20px 16px 20px
+border-radius: 8px
+gap: 16px
+
+background: #4F46E5;
+--------------------
+
+Carrusel
+
+width: 308px
+height: 200px
+--------------------
+
+Home/Body
+
+width: 1728px
+height: 1117px
+top: -2264px
+left: -1714px
+padding: 32px 218px 399px 219px
+
+background: #EBEBEB;
+--------------------
+
+Header
+
+width: Fixed (1,291px)
+height: Hug (64px)
+top: 32px
+left: 219px
+justify: space-between
+--------------------
+
+Brand
+
+width: 183px
+height: 43px
+	
+font-family: Segoe UI;
+font-size: 32px;
+font-weight: 700;
+line-height: 43px;
+letter-spacing: 0em;
+text-align: left;
+
+background: #1C1C1C;
+---------------------
+
+Nav
+
+width: Hug (354px)
+height: Hug (64px)
+gap: 32px
+---------------------
+
+Anchor nav
+
+width: 69px
+height: 32px
+
+font-family: Segoe UI;
+font-size: 24px;
+font-weight: 700;
+line-height: 32px;
+letter-spacing: 0em;
+text-align: left;
+
+background: #1C1C1C;
+---------------------
+
+Login button
+
+width: Hug (159px)
+height: Hug (64px)
+padding: 16px 32px 16px 32px
+border-radius: 10px
+gap: 10px
+
+background: #4F46E5;
+
+
+
+
