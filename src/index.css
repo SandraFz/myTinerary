@@ -41,6 +41,7 @@ body {
   border: .5rem solid red;
   background: #EBEBEB;
   margin: 1rem;
+  min-width: 260px;
 }
 
 /*
