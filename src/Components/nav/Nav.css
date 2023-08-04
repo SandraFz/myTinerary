@@ -6,6 +6,7 @@
 nav{
     display: flex;
     border: .2rem solid coral;
+    
 }
 
 .containerTittle{
@@ -43,7 +44,7 @@ a{
 ul{
     border: .2rem solid red;
     justify-content: space-around;
-    align-items: center;
+    align-items: end;
     padding-top: .3rem;;
 }
 
@@ -67,10 +68,10 @@ li{
 }
 
 button{
-    width: 150px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
     padding: 0% !important;
     gap: 10px;
 }
