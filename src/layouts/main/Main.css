@@ -1,12 +1,14 @@
 main{
-    border: 2rem solid red;
-    height: 300px;
-    display: block !important;
-    position: absolute !important;
-    width: 500px;
 }
 
-header{
-    border: 2rem solid black !important;
-    background-color: black !important;
+.carrusel{
+    height: auto !important;
+}
+
+.arrow{
+    
+}
+
+.arrow>img{
+    height: 32px;
 }

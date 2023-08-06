@@ -10,7 +10,6 @@ nav{
 }
 
 .containerTittle{
-    border:.2rem solid green;
     width: 50%;
     gap: 1rem;
     margin-right: 0% !important;
@@ -26,7 +25,6 @@ nav{
     top: .4em;
     left: 2em;
     margin-top: 1em;
-    border: .2rem solid blue;
     width: 150px;
     font-size: 1.2rem;
 }
@@ -42,7 +40,6 @@ a{
 }
 
 ul{
-    border: .2rem solid red;
     justify-content: space-around;
     align-items: end;
     padding-top: .3rem;;
@@ -50,7 +47,7 @@ ul{
 
 .login{
     color: #ffffff !important;
-    background-color: #4F46E5;
+    background-color: var(--darck-button);
     padding: 2px 5px 6px;
     border-radius: 5px;
     display: flex;
@@ -74,6 +71,15 @@ button{
     align-items: end;
     padding: 0% !important;
     gap: 10px;
+    border: none;
+}
+
+button:focus{
+    outline: 0px !important;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
 }
 
 span{
