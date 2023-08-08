@@ -21,9 +21,15 @@
     z-index: 3;
 }
 
-.carImg{
-    /*position: absolute;*/
+/*.carImg{
+    position: absolute;
     width: 100%;
+    border: 2px solid green;
+    z-index: 2;
+}*/
+
+.carImg4{
+    width: 20%;
     border: 2px solid green;
     z-index: 2;
 }
