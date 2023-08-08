@@ -1,0 +1,65 @@
+{
+    "currentDate": "2023-03-10",
+    "events": [
+        {
+            "_id": 1,
+            "name": "Collectivities Party",
+            "category": "Food",
+            "date": "2021-12-12",
+            "description": "Enjoy your favourite dishes, from different countries, in a unique event for the whole family.",
+            "image": "https://i.postimg.cc/kXWrBjXC/collectivities-party.jpg",
+            "place": "Multi Space",
+            "price": 10,
+            "capacity": 50000,
+            "assistance": 42756
+        },
+        {
+            "_id": 2,
+            "name": "Jurassic Park",
+            "category": "Museum",
+            "date": "2022-07-05",
+            "description": "Let's go meet the biggest dinosaurs in the paleontology museum.",
+            "image": "https://i.postimg.cc/nrQkSwwh/jurassic-park.jpg",
+            "place": "Field",
+            "price": 3,
+            "capacity": 10000,
+            "assistance": 6589
+        },
+        {
+            "_id": 3,
+            "name": "Metallica in concert",
+            "category": "Concert",
+            "date": "2022-01-22",
+            "description": "The only concert of the most emblematic band in the world.",
+            "image": "https://i.postimg.cc/XvQQr5C4/metallica-concert.jpg",
+            "place": "Stadium",
+            "price": 20,
+            "capacity": 500000,
+            "assistance": 497981
+        },
+        {
+            "_id": 4,
+            "name": "10K 4 life",
+            "category": "Race",
+            "date": "2022-03-01",
+            "description": "Come and exercise, improve your health and lifestyle.",
+            "image": "https://i.postimg.cc/2V3FvcvY/10k-4life.jpg",
+            "place": "Football field",
+            "price": 2,
+            "capacity": 200000,
+            "assistance": 198900
+        },
+        {
+            "_id": 5,
+            "name": "School's book fair",
+            "category": "Books",
+            "date": "2022-06-01",
+            "description": "Bring your unused school book and take the one you need.",
+            "image": "https://i.postimg.cc/34BWbTsq/school-bookfair.jpg",
+            "place": "Multi Space",
+            "price": 2,
+            "capacity": 50000,
+            "assistance": 38429
+        }
+    ]
+}

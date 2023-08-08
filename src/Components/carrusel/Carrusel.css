@@ -22,7 +22,7 @@
 }
 
 .carImg{
-    position: absolute;
+    /*position: absolute;*/
     width: 100%;
     border: 2px solid green;
     z-index: 2;
