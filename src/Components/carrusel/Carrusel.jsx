@@ -3,6 +3,8 @@ import Arrow from "../arrow/Arrow";
 import './Carrusel.css'
 import Data from '../../../public/assets/bd.json'
 
+let left = {class:'left', leftUrl: '../../../public/assets/images/arrow-left.png', leftAlt: 'Atrás'};
+let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-right.png', rightAlt: 'Adelante'};
 
 
 const Carrusel = () => {
@@ -10,14 +12,14 @@ const Carrusel = () => {
     let imagesCarrusel4 = Data.events;
 
     const [index, setIndex] = useState(0)
-    const [shortArray, setShortArray] = useState(imagesCarrusel4.slice(0, 4));
-
-    let left = {class:'left', leftUrl: '../../../public/assets/images/arrow-left.png', leftAlt: 'Atrás'};
-    let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-right.png', rightAlt: 'Adelante'};
+    const [shortArray, setShortArray] = useState([]);
+    
+    useEffect(()=>{
+          
+    }, [])
 
     useEffect(()=>{
-
-        console.log(shortArray)
+    
         switch(index){        
             case imagesCarrusel4.length-3:
                 console.log(`Case 1; index:` + index)
@@ -25,9 +27,7 @@ const Carrusel = () => {
                 imagesCarrusel4.slice(index, index+3).map(
                     elem => { images1.push(elem)}) 
                 images1.push(imagesCarrusel4[0])
-                
                 setShortArray(images1)
-                
                 break;
 
             case imagesCarrusel4.length-2:
@@ -40,7 +40,6 @@ const Carrusel = () => {
                         elem => {
                         images2.push(elem)})
                 setShortArray(images2)
-                
                 break;
 
             case imagesCarrusel4.length-1:
@@ -68,38 +67,40 @@ const Carrusel = () => {
                     imagesCarrusel4.slice(index, index+4).map(elem => {
                         images.push(elem)
                     })
-                    
+                
                 }else{
                     
                 }
                 setShortArray(images)
             break;
         }
-       
-        let interval = setInterval(()=>{}, 1000)
-        interval
+        console.log(shortArray)
+    
+        let interval = setInterval(
+            slideRight, 5000)
 
-        return clearInterval(interval)        
+        return ()=>{clearInterval(interval)} 
 
     },[index])
     
+    
     let slideLeft = () =>{
-
-        switch(index+4){
-            case imagesCarrusel4.length+3:
-                setIndex(3)
+        //CORREGIR primeros slides
+        switch(index-4){
+            case -4:
+                setIndex(imagesCarrusel4.length)
                 break;
-            case imagesCarrusel4.length+2:
-                setIndex(2)
+            case -3:
+                setIndex(imagesCarrusel4.length-(1+0))
                 break;
-            case imagesCarrusel4.length+1:
-                setIndex(1)     
+            case -2:
+                setIndex(imagesCarrusel4.length-(1+1))    
                 break;
-            case imagesCarrusel4.length:
-                setIndex(0)
+            case -1:
+                setIndex(imagesCarrusel4.length-(1+2))
                 break;
             default:
-                setIndex(index+4)
+                setIndex(index-4)
                 break
         }
       
@@ -126,62 +127,58 @@ const Carrusel = () => {
                     break
             }
           
-            console.log(index)
+            //console.log(index)
    }
 
+   /*let setBullet = ()=>{
+    let array = []
+    Array.of(shortArray.length/4).map((elem) =>{
+            array.push(elem)
+    })
+}*/
+
+/*
+   const setBullet = (idBullet) => {
+        setIndex(idBullet)
+   }
+*/
    /*let slideRight = () =>{
         (index + 4) > Data.events.length-1 ?setIndex(0):setIndex(index + 4)
         console.log(`slideRight después, index: ${index}`)
     }*/
-    
-    
 
-    
-    
-   
-
-   
-    
 
     
     return (
-        /*<div className="d-flex justify-center carrusel mb-3">
-
-        <div className="left" onClick={slideLeft + arrayBullets}>
-            <Arrow  className={left.class} src={left.leftUrl} alt={left.leftAlt}/>
-        </div>
-            <div className="d-flex justify-content-center flex-wrap ">
-
-                
-                <img className="carImg" src={imagesCarrusel} alt="Turista" />
-            </div>
-            
-           
-          
-
-        <div className="right" onClick={slideRight}>
-            <Arrow className={right.class} src={right.rightUrl} alt={right.rightAlt} />
-        </div>
-          
-    </div>*/
 
         <div className="d-flex justify-center carrusel mb-3">
 
             <div className="left" onClick={slideLeft}>
                 <Arrow  className={left.class} src={left.leftUrl} alt={left.leftAlt}/>
             </div>
-                <div className="d-flex justify-content-center flex-wrap ">
-                    
-                    {//Corresponde al switch
-                         shortArray.map((elem, idElem) =>{
+            <div className="d-flex aligne-items-center flex-wrap containerImages">
+                
+                {//Corresponde al switch
+                        shortArray.map((elem) =>{
 
-                            if(idElem === index) return <img key={idElem} className="carImg5" src={elem.image} alt="Turista" />
-                                else return <img key={idElem} className="carImg4" src={elem.image} alt="Turista" />
-                        })
-                    }
-                    
-                </div>
-
+                       return <div className="m-1">
+                                <img className="carImg5" src={elem.image} alt="Turista" />
+                            </div>
+                            
+                    })
+                }
+                
+            </div>
+            <div className="border border-2">
+                {
+                   [0,4,8].map(elem => { 
+                        if(elem === index){
+                            return <span>⚪</span>
+                        }
+                   })
+                  
+                }
+            </div>
             <div className="right" onClick={slideRight}>
                 <Arrow className={right.class} src={right.rightUrl} alt={right.rightAlt} />
             </div>

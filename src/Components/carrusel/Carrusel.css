@@ -1,11 +1,16 @@
 .carrusel{
     border: 2px solid blue;
-    justify-content: center !important;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
     width: 100%;
     height: 40vh !important;
     z-index: 1;
     position: relative;
+}
+
+.containerImages{
+    text-align: center !important;
 }
 
 .left{
@@ -35,7 +40,7 @@
 }
 
 .carImg5{
-    width: 25%;
+    width: 200px;
 }
 
 /*.carImg4:hover{

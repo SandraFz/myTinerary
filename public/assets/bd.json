@@ -60,4 +60,89 @@
             "price": 2,
             "capacity": 50000,
             "assistance": 38429
-        }]}
+        },
+        {
+            "_id": 6,
+            "name": "Aladdin",
+            "category": "Cinema",
+            "date": "2019-05-24",
+            "description": "We invite you watch Disney's classic character in new adventures.",
+            "image": "https://i.postimg.cc/L4fQTJdB/aladdin.jpg",
+            "place": "Showcase",
+            "price": 4,
+            "capacity": 2500,
+            "assistance": 1875
+        },
+        {
+            "_id": 7,
+            "name": "Arabic holidays",
+            "category": "Food",
+            "date": "2023-10-12",
+            "description": "An invitation to enjoy Middle East's flavours.",
+            "image": "https://i.postimg.cc/CxJQqX33/arabic.jpg",
+            "place": "Multi Space",
+            "price": 10,
+            "capacity": 50000,
+            "estimate": 50000
+        },
+        {
+            "_id": 8,
+            "name": "Korean style",
+            "category": "Food",
+            "date": "2022-01-10",
+            "description": "Enjoy the best Korean dishes, with international chefs and awesome events.",
+            "image": "https://i.postimg.cc/bvzmYgdm/korean.jpg",
+            "place": "Multi Space",
+            "price": 10,
+            "capacity": 50000,
+            "assistance": 48516
+        },
+        {
+            "_id": 9,
+            "name": "Japanese style",
+            "category": "Food",
+            "date": "2022-02-25",
+            "description": "Enjoy the best Japanese dishes, with international chefs and awesome events.",
+            "image": "https://i.postimg.cc/50rg3Mgr/japanese.jpg",
+            "place": "Multi Space",
+            "price": 10,
+            "capacity": 50000,
+            "assistance": 49618
+        },
+        {
+            "_id": 10,
+            "name": "Straight from Middle East",
+            "category": "Food",
+            "date": "2022-04-08",
+            "description": "We gather Middle East's collectivities in a unique event to enjoy in family.",
+            "image": "https://i.postimg.cc/sf8HP502/middle-east.jpg",
+            "place": "Multi Space",
+            "price": 10,
+            "capacity": 50000,
+            "assistance": 42756
+        },
+        {
+            "_id": 11,
+            "name": "Take away",
+            "category": "Food",
+            "date": "2022-06-27",
+            "description": "Are you a fast food lover? We have the event for you, were we gather the best fast food chains.",
+            "image": "https://i.postimg.cc/yDMJDnhL/take-away.jpg",
+            "place": "Multi Space",
+            "price": 10,
+            "capacity": 50000,
+            "assistance": 42756
+        },
+        {
+            "_id": 12,
+            "name": "Italian style",
+            "category": "Food",
+            "date": "2022-08-12",
+            "description": "Enjoy the best dishes in this awesome culinary event.",
+            "image": "https://i.postimg.cc/DfJ3Kv98/italian.jpg",
+            "place": "Multi Space",
+            "price": 10,
+            "capacity": 50000,
+            "assistance": 42756
+        }
+        ]}

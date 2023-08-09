@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Nav from './Components/nav/nav'
 import Main from './layouts/main/Main'
+import Carrusel from './Components/carrusel/carrusel'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
         <Nav/>
       </header>
       <Main/>
+      <Carrusel/>
     </>
   )
 }
