@@ -34,6 +34,14 @@
     z-index: 2;
 }
 
+.carImg5{
+    width: 25%;
+}
+
+/*.carImg4:hover{
+    width: 22%;
+}*/
+
 .line{
     background-color: var(--light-background);
     position: absolute;
