@@ -1,8 +1,12 @@
 import React from "react";
 import './Nav.css'
+import AnchorList from "../anchorList/AnchorList";
 import {Link as Anchor} from 'react-router-dom'
+import ArrayList from '../../assets/data/Links.json'
 
 function Nav() {
+
+const aList = ArrayList.navbar
 
     return (
       <>
@@ -22,27 +26,20 @@ function Nav() {
          
           <div className="buttonContainer">
           
-              <div className="collapse navbar-collapse containerUl" id="navbarNav">
+              <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end">
-                  <li className="nav-item">
-                    <Anchor to="#" className="button">
-                      <img className="" src="public/assets/images/perfil-white.png" alt="Login" />
-                      Login
-                      </Anchor>
-                  </li>
-                  <li className="nav-item">
-                    <Anchor className="nav-link active" aria-current="page" to={'/'}>Home</Anchor>
-                  </li>
-                  <li className="nav-item">
-                    <Anchor className="nav-link" to={'/cities'}>Cities</Anchor>
-                  </li>
+                  <AnchorList list={aList}>
+                        <Anchor to="#" className="button">
+                        <img className="" src="public/assets/images/perfil-white.png" alt="Login" />
+                        Login
+                        </Anchor>
+                  </AnchorList>
                 </ul>
+                
                 
               </div>
             
-          
           </div>
-          
           
         </div>
       

@@ -1,0 +1,26 @@
+{
+    "navbar": [
+        {
+            "to":"/", 
+            "value":"Home"
+        },
+        {
+            "to":"/cities", 
+            "value":"Cities"
+        }
+    ],
+    "footerLinks": {
+        "st":"",
+        "links": [
+        {
+            "to":"/#", 
+            "value":"link"
+        }
+    ]},
+    "redes": [
+        {
+            "to":"/#", 
+            "value":""
+        }
+    ]
+}

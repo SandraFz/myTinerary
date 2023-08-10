@@ -46,7 +46,6 @@ a:hover {
 }
 
 body {
-  border: .5rem solid red;
   background: var(--light-background);
   margin: 1rem;
   min-width: 260px;

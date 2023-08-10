@@ -14,6 +14,7 @@ footer:not(.footer) {
 
 .a-redes-logo {
     object-fit: contain;
+    margin: 5px;
 }
 
 .a-redes-logo,
@@ -22,7 +23,11 @@ footer:not(.footer) {
     height: 40px;
 }
 
-footer>h6 {
-    font-size: 1.5rem;
-    font-weight: 600;
+.footerMenu{
+    flex-direction: row;
+}
+@media screen and (max-width: 400px) {
+    .redes-group{
+        flex-direction: column;
+    }
 }

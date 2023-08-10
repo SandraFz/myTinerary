@@ -1,5 +1,4 @@
 .carrusel{
-    border: 2px solid blue;
     flex-direction: column;
     justify-content: center;
     align-items: center !important;
@@ -17,7 +16,7 @@
 
 .cardDiv{
     width: 100%;
-    height: 300px;
+    height: 100px;
     position: relative;
     flex-grow: 2;
 }
@@ -53,40 +52,16 @@
 }
 
 .left{
-    border: 2px solid green;
     position: absolute;
-    left: 0px;
+    left: -30px;
     z-index: 3;
 }
 
 .right{
     position: absolute;
-    right: 0px;
+    right: -30px;
     z-index: 3;
-    transition-property: width;
-    transition-duration: 2s;
-    transition-timing-function: linear;
-    transition-delay: 1s;
 }
-
-/*.carImg{
-    position: absolute;
-    width: 100%;
-    border: 2px solid green;
-    z-index: 2;
-}*/
-
-/* .carImg4{
-    width: 20%;
-    border: 2px solid green;
-    z-index: 2;
-} */
-
-
-
-/*.carImg4:hover{
-    width: 22%;
-}*/
 
 .line{
     background-color: var(--light-background);
@@ -99,16 +74,24 @@
 }
 
 @media screen and (min-width: 450px) {
-    .cardDiv{
-       width: 150px;
-    }
 
     .carrusel{
-        border: 2px solid blue;
+        width: 80%;
+    }
+
+    .cardDiv{
+        width: 150px;
+    }
+}
+
+@media screen and (min-width: 750px) {
+
+    .carrusel{
         width: 60%;
-   /*      height: 40vh !important; */
-        z-index: 1;
-        position: relative;
+    }
+
+    .cardDiv{
+        height: 300px;
     }
 }
 

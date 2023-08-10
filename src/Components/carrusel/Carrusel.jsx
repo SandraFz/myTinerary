@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Arrow from "../arrow/Arrow";
 import './Carrusel.css'
-import Data from '../../../public/assets/bd.json'
+import Data from '../../assets/data/Cities.json'
 
 let left = {class:'left', leftUrl: './assets/images/arrow-left.png', leftAlt: 'Atrás'};
 let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-right.png', rightAlt: 'Adelante'};
@@ -9,7 +9,8 @@ let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-righ
 
 const Carrusel = () => {
 
-    let imagesCarrusel4 = Data.events;
+    let imagesCarrusel4= Data.cities;
+    console.log(`Esto es Data con Cities: ${imagesCarrusel4}`)
 
     const [index, setIndex] = useState(0)
     const [shortArray, setShortArray] = useState([]);
@@ -63,7 +64,7 @@ const Carrusel = () => {
             default:
                 console.log(`Case default; index: ${index}`)
                 let images = []
-                if(index<Data.events.length-3){
+                if(index<Data.length-3){
                     imagesCarrusel4.slice(index, index+4).map(elem => {
                         images.push(elem)
                     })
@@ -143,7 +144,7 @@ const Carrusel = () => {
    }
 */
    /*let slideRight = () =>{
-        (index + 4) > Data.events.length-1 ?setIndex(0):setIndex(index + 4)
+        (index + 4) > Data.length-1 ?setIndex(0):setIndex(index + 4)
         console.log(`slideRight después, index: ${index}`)
     }*/
 

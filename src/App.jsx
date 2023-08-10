@@ -14,7 +14,11 @@ import Cities from './pages/Cities'
 const router = createBrowserRouter([
   { path:'/', element:<Home/>},
   { path:'/cities', element:<Cities/>},
-  { path:'/error404', element:<Error404/>}
+  { path:'/error404', element:<Error404/>},
+  { path:'*', element:<Error404/>}
+  /*{path:'*', element:<Hero/>, children: [
+      {path:'/error404', element:<Error404/>}
+    ]}*/
 ])
 
 function App() {
