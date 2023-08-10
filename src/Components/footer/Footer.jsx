@@ -1,7 +1,7 @@
 import React from "react";
 import './Footer.css'
 import AnchorList from "../anchorList/AnchorList";
-import ArrayList from '../../assets/data/Links.json'
+import ArrayList from '../../assets/data/links.json'
 
 function Footer() {
 

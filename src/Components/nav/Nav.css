@@ -3,6 +3,11 @@
     padding-bottom: 0% !important;
 }
 
+header{
+padding: 1rem;
+    background-color: var(--strong-background);
+}
+
 nav{
     display: flex;
 }
@@ -29,7 +34,8 @@ nav{
     width: 45%;
     font-size: 1rem;
     height: auto !important;
-}   
+    color: white !important;
+}    
 
 ul{
     justify-content: space-around;
@@ -42,8 +48,8 @@ ul{
 }
 
 .button{
-    color: #ffffff !important;
-    background-color: var(--dark-button);
+    color: white !important;
+    background-color: var(--strong-background);
     padding: 2px 5px 6px;
     border-radius: 5px;
     display: flex;
@@ -53,7 +59,7 @@ ul{
 
 .login > img{
     width: 20px;
-    margin-right: 5px;
+    margin-right: 5px !important;
 }
 
 li{

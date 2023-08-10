@@ -2,7 +2,7 @@ import React from "react";
 import './Nav.css'
 import AnchorList from "../anchorList/AnchorList";
 import {Link as Anchor} from 'react-router-dom'
-import ArrayList from '../../assets/data/Links.json'
+import ArrayList from '../../assets/data/links.json'
 
 function Nav() {
 
@@ -12,7 +12,7 @@ const aList = ArrayList.navbar
       <>
       <header>
         
-      </header>
+      
       <nav class="navbar navbar-dark navbar-expand-md w-100 align-items-top">
         <div className="container-fluid container1">
         
@@ -44,7 +44,7 @@ const aList = ArrayList.navbar
         </div>
       
       </nav>
-    
+      </header>
     </>
    )
 }

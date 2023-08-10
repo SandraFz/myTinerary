@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Arrow from "../arrow/Arrow";
 import './Carrusel.css'
-import Data from '../../assets/data/Cities.json'
+import Data from '../../assets/data/cities.json'
 
 let left = {class:'left', leftUrl: './assets/images/arrow-left.png', leftAlt: 'Atrás'};
 let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-right.png', rightAlt: 'Adelante'};
@@ -10,21 +10,21 @@ let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-righ
 const Carrusel = () => {
 
     let imagesCarrusel4= Data.cities;
-    console.log(`Esto es Data con Cities: ${imagesCarrusel4}`)
+   
 
     const [index, setIndex] = useState(0)
     const [shortArray, setShortArray] = useState([]);
     
     useEffect(()=>{
-          
+        console.log(`Esto es Data con shortArray: ` +{shortArray})
     }, [])
 
     useEffect(()=>{
     
         switch(index){        
             case imagesCarrusel4.length-3:
-                console.log(`Case 1; index:` + index)
-                let images1 = []; 
+/*                 console.log(`Case 1; index:` + index)
+ */                let images1 = []; 
                 imagesCarrusel4.slice(index, index+3).map(
                     elem => { images1.push(elem)}) 
                 images1.push(imagesCarrusel4[0])
@@ -33,8 +33,8 @@ const Carrusel = () => {
 
             case imagesCarrusel4.length-2:
                 let images2 = [];
-                console.log(`Case 2; index:` + index)
-                imagesCarrusel4.slice(index, index+2).map(
+/*                 console.log(`Case 2; index:` + index)
+ */                imagesCarrusel4.slice(index, index+2).map(
                     elem => {
                     images2.push(elem)})
                 imagesCarrusel4.slice(0, 2).map(
@@ -45,26 +45,26 @@ const Carrusel = () => {
 
             case imagesCarrusel4.length-1:
                 let images3 = []
-                console.log(`Case 3; index:` + index)
-                images3.push(imagesCarrusel4[imagesCarrusel4.length-1])
+/*                 console.log(`Case 3; index:` + index)
+ */                images3.push(imagesCarrusel4[imagesCarrusel4.length-1])
                 imagesCarrusel4.slice(0, 3).map(elem => {
                     images3.push(elem)
                 })
                 setShortArray(images3)
-                console.log(`Case 3; index:` + index)
-            break;
+/*                 console.log(`Case 3; index:` + index)
+ */            break;
             
             case imagesCarrusel4.length:
                 let images4 = []
                 images4 = imagesCarrusel4.slice(0, 4)
                 setShortArray(images4)
-                console.log(`Case 4; index:` + index)
-                break;
+/*                 console.log(`Case 4; index:` + index)
+ */                break;
             
             default:
-                console.log(`Case default; index: ${index}`)
-                let images = []
-                if(index<Data.length-3){
+/*                 console.log(`Case default; index: ${index}`)
+ */                let images = []
+                if(index<imagesCarrusel4.length-3){
                     imagesCarrusel4.slice(index, index+4).map(elem => {
                         images.push(elem)
                     })
@@ -75,7 +75,7 @@ const Carrusel = () => {
                 setShortArray(images)
             break;
         }
-        console.log(shortArray)
+        console.log("shortArray:" +{shortArray})
     
         let interval = setInterval(
             slideRight, 5000)
@@ -158,17 +158,15 @@ const Carrusel = () => {
                 <Arrow  className={left.class} src={left.leftUrl} alt={left.leftAlt}/>
             </div>
             <div className="d-flex aligne-items-center flex-wrap containerImages">
-                
                 {//Corresponde al switch
-                        shortArray.map((elem) =>{
-
-                       return <div className="m-1 cardDiv">
-                                <img className="carImg5" src={elem.image} alt="Turista" />
-                                <div className="spanDiv">
-                                    <span>{elem.name}</span>
-                                </div>
-                            </div>
-                            
+                       
+                    shortArray.map(elem => {
+                        return <div className="m-1 cardDiv">
+                        <img className="carImg5" src={elem.image} alt={elem.name} />
+                        <div className="spanDiv">
+                            <span>{elem.name}</span>
+                        </div>
+                    </div>
                     })
                 }
                 

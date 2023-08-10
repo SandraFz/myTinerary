@@ -26,6 +26,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    box-shadow: var(--shadow-gral);
 }
 
 .spanDiv, .spanDiv > span {

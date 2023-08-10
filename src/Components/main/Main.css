@@ -1,9 +1,32 @@
 main{
-    margin-top: 3rem;   
+    height: 70vh;
+    margin-top: 3rem;
+/*     background-image: url('../../assets/paisaje.jpg');
+     background-color: var(--light-background);*/
+    background-repeat: no-repeat;   
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center !important;
+    padding: 10px;
+    /*backdrop-filter: blur(2px);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));*/
+   
+}
+
+h1{
+    color:var(--hot-color);
+    /*box-shadow: var(--shadow-gral);*/
+    text-shadow: 1px 1px 2px var(--strong-background);
 }
 
 p{
     margin: 1rem auto;
+    color: white;
+    /*background: radial-gradient(ellipse at center, var(--light-background), rgba(0, 0, 0, 0));
+    backdrop-filter: opacity(20%);*/
+    border-radius: 50px;
+    text-shadow: 2px 2px 4px var(--strong-background);
 }
 
 .arrow>img{
@@ -64,6 +87,20 @@ p{
 
     15%{
         transform: none;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    main{
+        height: 50vh;
+        align-items: end;
+        padding: 20px !important;
+    }
+
+    p{
+        margin: auto 5rem;
+        padding: 1rem;
+        font-size: 20px !important;
     }
 }
 
