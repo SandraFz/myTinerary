@@ -10,6 +10,7 @@
 :root {
   font-family: 'Roboto', sans-serif;
   --light-background: #EBEBEB;
+  --light-background-trans: rgba(235, 235, 235, 0,5);
   --dark-button: #4F46E5;
   
   /*font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -49,7 +50,6 @@ body {
   background: var(--light-background);
   margin: 1rem;
   min-width: 260px;
-  height: auto;
   align-items: center;
 }
 

@@ -1,0 +1,28 @@
+footer:not(.footer) {
+    position: fixed;
+}
+
+footer:not(.footer) {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer1{
+    position: sticky!important;
+}
+
+.a-redes-logo {
+    object-fit: contain;
+}
+
+.a-redes-logo,
+.a-redes-logo>img {
+    width: 40px;
+    height: 40px;
+}
+
+footer>h6 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}

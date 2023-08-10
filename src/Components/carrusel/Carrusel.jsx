@@ -163,7 +163,9 @@ const Carrusel = () => {
 
                        return <div className="m-1 cardDiv">
                                 <img className="carImg5" src={elem.image} alt="Turista" />
-                                <span>{elem.name}</span>
+                                <div className="spanDiv">
+                                    <span>{elem.name}</span>
+                                </div>
                             </div>
                             
                     })
