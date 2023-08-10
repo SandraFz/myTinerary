@@ -1,7 +1,75 @@
 main{
+    margin-top: 3rem;   
 }
 
+p{
+    margin: 1rem auto;
+}
 
 .arrow>img{
     height: 32px;
+}
+
+.info{
+   width: 100px;
+   padding: .4rem;
+   justify-content: center;
+}
+
+.info {
+    animation: bit 5000ms infinite ease;
+    animation-delay: 1s;
+}
+
+@keyframes bit{
+    0%{
+        transform: none;
+    }
+    10%{
+        transform: scale(130%);
+    }
+    20%{
+        transform:none;
+    }
+}
+
+.up-font {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.6rem;
+    font-size: 2rem;
+    min-width: 30px;
+    min-height: 30px;
+    color: #323b41;
+    animation: up 5000ms infinite ease-in;
+    animation-delay: 1s;
+}
+
+@keyframes up{
+    0%{
+        transform:none;
+    }
+    3%{
+        transform: translate(0px, -10px);
+        font-size: 2rem;
+    }
+
+    6%{
+        transform: translate(0px, 5px);
+    }
+
+    9%{
+        transform: translate(0px, -10px);
+    }
+
+    15%{
+        transform: none;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    main{
+        width: 70%;
+        border: .3rem soid black;
+    }
 }

@@ -5,14 +5,11 @@
 
 nav{
     display: flex;
-  
-
 }
 
 .container1{
-    justify-content: space-between;
     align-items: top !important;
-    border: .2rem solid coral;
+    align-items: flex-start;
 }
 
 .containerTittle{
@@ -27,13 +24,10 @@ nav{
 }
 
 .tittle{
-    /*position: fixed;*/
-    /*margin-top: 0px;*/
     left: 2em;
     margin-top:0px !important;
     width: 45%;
     font-size: 1rem;
-    border:.3rem solid green;
     height: auto !important;
 }   
 
@@ -41,31 +35,19 @@ a{
     color: black !important;
 }
 
-
-
-.containerNav{
-    
-}
-
-.continerUl{
-    border: .3rem solid green !important;
-}
-
 ul{
     justify-content: space-around;
     align-items: end;
     padding-top: .3rem;;
-    /*border: .3rem solid green;*/
 }
 
 .menuItem{
     margin-right: 0px;
-    
 }
 
-.login{
+.button{
     color: #ffffff !important;
-    background-color: var(--darck-button);
+    background-color: var(--dark-button);
     padding: 2px 5px 6px;
     border-radius: 5px;
     display: flex;
@@ -75,7 +57,7 @@ ul{
 
 .login > img{
     width: 20px;
-   margin-right: 5px;
+    margin-right: 5px;
 }
 
 li{
@@ -83,16 +65,13 @@ li{
 }
 
 .buttonContainer{
-    border: .3rem solid red;
     align-items: end;
-    width: 45%;
+    width: 100%;
 }
 
 button{
-  
     padding: 0% !important;
-   border: .3rem solid blue !important;
-   margin: 0px;
+    margin: 0px;
     width: 50px;
 }
 
@@ -104,13 +83,11 @@ button:focus{
     box-shadow: none;
 }
 
-span{
-   
-}
-
 @media screen and (min-width: 768px) {
     
-
+    .buttonContainer{
+        width: auto;
+    }
    
 }
 

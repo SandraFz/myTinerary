@@ -9,8 +9,39 @@
     position: relative;
 }
 
+
+
 .containerImages{
     text-align: center !important;
+    gap: 15px;
+   
+}
+
+.cardDiv{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    flex-grow: 2;
+}
+
+.carImg5{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: sepia(60%);
+}
+
+.cardDiv > span {
+    position: absolute;
+    z-index: 3;
+    bottom: 5px;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    color:var(--light-background);
+    font-weight: bold;
+    background-color: aqua;
 }
 
 .left{
@@ -24,6 +55,10 @@
     position: absolute;
     right: 0px;
     z-index: 3;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
 }
 
 /*.carImg{
@@ -33,15 +68,13 @@
     z-index: 2;
 }*/
 
-.carImg4{
+/* .carImg4{
     width: 20%;
     border: 2px solid green;
     z-index: 2;
-}
+} */
 
-.carImg5{
-    width: 200px;
-}
+
 
 /*.carImg4:hover{
     width: 22%;
@@ -57,5 +90,10 @@
     z-index: 3;
 }
 
+@media screen and (min-width: 450px) {
+    .cardDiv{
+       width: 150px;
+    }
+}
 
 

@@ -161,15 +161,16 @@ const Carrusel = () => {
                 {//Corresponde al switch
                         shortArray.map((elem) =>{
 
-                       return <div className="m-1">
+                       return <div className="m-1 cardDiv">
                                 <img className="carImg5" src={elem.image} alt="Turista" />
+                                <span>{elem.name}</span>
                             </div>
                             
                     })
                 }
                 
             </div>
-            <div className="border border-2">
+            {/*<div className="border border-2">
                 {
                    [0,4,8].map(elem => { 
                         if(elem === index){
@@ -178,7 +179,7 @@ const Carrusel = () => {
                    })
                   
                 }
-            </div>
+            </div>*/}
             <div className="right" onClick={slideRight}>
                 <Arrow className={right.class} src={right.rightUrl} alt={right.rightAlt} />
             </div>
