@@ -49,6 +49,7 @@ body {
   background: var(--light-background);
   margin: 1rem;
   min-width: 260px;
+  height: auto;
   align-items: center;
 }
 

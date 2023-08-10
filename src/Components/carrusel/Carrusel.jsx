@@ -3,7 +3,7 @@ import Arrow from "../arrow/Arrow";
 import './Carrusel.css'
 import Data from '../../../public/assets/bd.json'
 
-let left = {class:'left', leftUrl: '../../../public/assets/images/arrow-left.png', leftAlt: 'Atrás'};
+let left = {class:'left', leftUrl: './assets/images/arrow-left.png', leftAlt: 'Atrás'};
 let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-right.png', rightAlt: 'Adelante'};
 
 
