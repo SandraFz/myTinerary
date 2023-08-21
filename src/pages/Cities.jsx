@@ -1,19 +1,18 @@
-import React, {useEffect} from "react";
+import React, {useState,useEffect} from "react";
 import Hero from "../layouts/Hero";
 import CardGral from "../Components/card/CardGral";
-import Data from '../assets/data/Cities.json'
+/* import Data from '../assets/data/Cities.json' */
 
-const apiLocal = 'http://localhost:8000/api/'
+const api = 'http://localhost:8000/api/'
 
 const Cities = () => {
 
-    //const [cityList, setCityList] = useState([])
+    const [cityList, setCityList] = useState([])
     
     useEffect(() =>{
-        fetch(apiLocal)
+        fetch(api)
             .then(res => res.json())
-            .then(data => console.log(data))
-        
+            .then(data => setCityList(data.list))
     }, [])
 
 
@@ -22,8 +21,9 @@ const Cities = () => {
                 
             <div className="d-flex justify-content-center flex-wrap gap-2 px-3" id="cards-group">
                 {     
-                    Data.cities.map(elem =>{
-                        return <CardGral key={elem.id} array={elem}/>
+                    cityList.map(elem =>{
+                        console.log('cityList es: '+cityList[0].name)
+                        return <CardGral key={elem._id} city={elem}/>
                     })                
                     
                 }                

@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import './CardGral.css'
+import {Link as Anchor} from "react-router-dom"
 
-const CardGral = ({array, action}) => {
 
-    
 
-    
+const CardGral = ({city}) => {
+
     return (
         
                 <div className="d-flex flex-column align-items-center justify-content-between p-3 w-100 p-1 rounded-2 content-card-group">
-                    <img  className="w-50 figure-card figure-card1 rounded-top rounded-end mt-1" src={array.image}>
+                    <img  className="w-50 figure-card figure-card1 rounded-top rounded-end mt-1" src={city.image}>
                     </img>
                     <h3>
-                        {array.name}
+                        {city.name}
                     </h3>
                     <p>
-                        {array.description}
+                        {city.description}
                     </p>
                     <div className="d-flex justify-content-between align-items-center g-5 w-100 button-card-group">
 
-                        <a href={action} className="btn p-1">
+                        <Anchor to={'/detail/'+city._id} className="btn p-1">
                             more...
-                        </a>
+                        </Anchor>
                     </div>
                 </div>
              
