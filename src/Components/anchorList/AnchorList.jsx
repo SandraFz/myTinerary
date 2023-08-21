@@ -5,19 +5,18 @@ import { Link as Anchor } from "react-router-dom";
 const AnchorList = ({children, list}) => {
 
     return (
-            <>
+        <>
             {children}
             {
             list.map(elem => {
                 
                 return  <li className="nav-item">
-                            <Anchor className=" text" to={elem.to}>{elem.value}</Anchor>
+                            <Anchor className="text" key={elem.value} to={elem.to}>{elem.value}</Anchor>
                         </li>
             })
             
             }
-            </>
-            
+        </>
       
     )
 }

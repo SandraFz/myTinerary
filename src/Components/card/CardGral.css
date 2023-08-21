@@ -1,0 +1,34 @@
+.content-card-group {
+    width: 20vw;
+    max-width: 300px;
+    margin-bottom: 1rem;
+    background-color: var(--light-background-trans);
+}
+
+.figure-card {
+    width: 90%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow-gral);
+}
+
+.content-card-group img {
+    width: 90%;
+}
+
+/* .button-card-group>a,
+input[type="submit"],
+#m-button {
+    background-color: var(--hard-color);
+    color: var(--soft-color);
+    width: 100px;
+    box-shadow: var(--shadow-btn);
+} */
+
+.button-card-group{
+    background-color: var(--hard-color) !important;
+    color: var(--soft-color);
+    width: 100px;
+    box-shadow: var(--shadow-btn);
+}

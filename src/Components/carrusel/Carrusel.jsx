@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Arrow from "../arrow/Arrow";
 import './Carrusel.css'
-import Data from '../../assets/data/cities.json'
+import Data from '../../assets/data/Cities.json'
 
 let left = {class:'left', leftUrl: './assets/images/arrow-left.png', leftAlt: 'Atrás'};
 let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-right.png', rightAlt: 'Adelante'};
@@ -162,9 +162,9 @@ const Carrusel = () => {
                        
                     shortArray.map(elem => {
                         return <div className="m-1 cardDiv">
-                        <img className="carImg5" src={elem.image} alt={elem.name} />
+                        <img className="carImg5" key={elem.id} src={elem.image} alt={elem.name} />
                         <div className="spanDiv">
-                            <span>{elem.name}</span>
+                            <span key={elem.id}>{elem.name}</span>
                         </div>
                     </div>
                     })

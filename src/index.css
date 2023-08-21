@@ -9,10 +9,11 @@
 
 :root {
   font-family: 'Roboto', sans-serif;
-  --light-background: #FFE155/*#EBEBEB*/;
+  --light-background: rgba(235, 235, 85)/*#FFE155/*#EBEBEB*/;
   --strong-background: #023047;
   --hot-color: #FB8500;
-  --light-background-trans: rgba(/*255, 225, 85,*/235, 235, 235, 0,5);
+  --hot-color-trans: rgba(251, 133, 0, 0.1);
+  --light-background-trans: rgba(/*255, 225, 85,*/235, 235, 235, 0.3);
   --dark-button: /*#FB8500*/#4F46E5;
   --shadow-gral: -5px -5px 8px 5px rgba(2, 48, 71, .8);
 }
