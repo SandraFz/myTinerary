@@ -30,12 +30,11 @@ const aList = ArrayList.navbar
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end">
                   <AnchorList list={aList}>
                         <Anchor to="#" className="button">
-                        <img className="" src="public/assets/images/perfil-white.png" alt="Login" />
-                        Login
+                          <img className="" src="/assets/images/perfil-white.png" alt="Login" />
+                          Login
                         </Anchor>
                   </AnchorList>
                 </ul>
-                
                 
               </div>
             

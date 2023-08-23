@@ -1,4 +1,4 @@
-import { ReactFragment, useEffect, useState } from "react";
+import React, { ReactFragment, useEffect, useState } from "react";
 import { Link as Anchor, useParams } from "react-router-dom";
 import Hero from "../layouts/Hero";
 import axios from "axios";
@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Detail = () =>{
 
-    const [city, setCity] = useState()
+    const [city, setCity] = useState({})
 
     const {id} = useParams()
     console.log('id es: '+id)
@@ -33,8 +33,10 @@ const Detail = () =>{
        
         <Hero>
             {city && (
-                <div className="d-flex flex-column align-items-center justify-content-between p-3 w-100 p-1 rounded-2 content-card-group">
-                <img src={city.image} className="figure-card figure-card1 rounded-top rounded-end mt-1"></img>
+                <div className="d-flex flex-column align-items-center justify-content-between p-3 p-1 rounded-2">
+                    <div className="w-100">
+                        <img src={city.image} className="figure-card figure-card1 rounded-top rounded-end mt-1"></img>
+                    </div>
                     <h3>
                         {city.name}
                     </h3>
@@ -48,6 +50,14 @@ const Detail = () =>{
                     </div>
                 </div> 
             )}
+            <div>
+                <span className="fs-4 fw-bold">Under construction. Come back soon to see what's new.</span>
+                <button>
+                    <Anchor to='/'>
+                        Return
+                    </Anchor>
+                </button>
+            </div>
         </Hero>
        
         
