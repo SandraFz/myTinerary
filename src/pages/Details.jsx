@@ -43,21 +43,26 @@ const Detail = () =>{
                     <p>
                         {city.description}
                     </p>
-                    <div className="d-flex justify-content-between align-items-center g-5 w-100 button-card-group">
+                    {/* <div className="d-flex justify-content-between align-items-center g-5 w-100 button-card-group">
                         <Anchor to='/' className="btn p-1">
                             return
                         </Anchor>
+                    </div> */}
+                     <div className="d-flex flex-column align-items-center">
+                        <span className="fs-4 fw-bold">Under construction. Come back soon to see what's new.</span>
+                        <Anchor to='/' className="button">
+                        Return
+                    </Anchor>
                     </div>
                 </div> 
             )}
-            <div>
-                <span className="fs-4 fw-bold">Under construction. Come back soon to see what's new.</span>
-                <button>
-                    <Anchor to='/'>
+                    {/* <div>
+                    <Anchor to='/' className="button">
                         Return
                     </Anchor>
-                </button>
-            </div>
+                    </div> */}
+
+           
         </Hero>
        
         

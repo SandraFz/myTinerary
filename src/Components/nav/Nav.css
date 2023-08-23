@@ -53,8 +53,10 @@ ul{
     padding: 2px 5px 6px;
     border-radius: 5px;
     display: flex;
+    justify-content: center;
     align-items: center;
     font-size: 500;
+    max-width: 150px;
 }
 
 .login > img{

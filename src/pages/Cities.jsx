@@ -85,6 +85,9 @@ const Cities = () => {
     }
 
     let buttonHandler = () => {
+        
+        setDispMessage('d-none')
+        setDispCards("d-flex justify-content-center flex-wrap gap-2 px-3")
         setContent('')
     }
 
@@ -95,8 +98,7 @@ const Cities = () => {
                 
                 <form class="d-flex p-2 div-search">
                     <input type="text" onChange={inputHandle} value={content}/>
-{/*                     
- */}                    <button type="button" class="xButton" onClick={buttonHandler} >x</button>
+                    <button type="button" class="xButton button" onClick={buttonHandler} >x</button>
                 </form>
             </div>
                 

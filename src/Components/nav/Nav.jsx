@@ -21,7 +21,7 @@ const aList = ArrayList.navbar
           </a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
            
-            <img className="menuItem" src="public/assets/images/menu.png" alt="" />
+            <img className="menuItem" src="/assets/images/menu.png" alt="" />
             </button>
          
           <div className="buttonContainer">

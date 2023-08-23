@@ -1,15 +1,8 @@
-footer:not(.footer) {
-    position: fixed;
-}
-
-footer:not(.footer) {
+footer {
     left: 0;
     bottom: 0;
     width: 100%;
-}
-
-.footer1{
-    position: sticky!important;
+    background-color: var(--strong-background);
 }
 
 .a-redes-logo {
