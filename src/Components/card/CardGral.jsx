@@ -14,12 +14,12 @@ const CardGral = ({city}) => {
                     <h3>
                         {city.name}
                     </h3>
-                    <p>
+                    {/* <p>
                         {city.description}
-                    </p>
+                    </p> */}
                     <div className="d-flex justify-content-between align-items-center g-5 w-100 button-card-group">
 
-                        <Anchor to={'/detail/'+city._id} className="btn p-1 button">
+                        <Anchor to={'/detail/'+city._id} className="p-1 button">
                             more...
                         </Anchor>
                     </div>
