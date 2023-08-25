@@ -1,17 +1,15 @@
 import React from "react";
-import Nav from "../Components/nav/nav";
+import Nav from "../Components/nav/Nav";
 import Footer from "../Components/footer/Footer";
 
 const Hero = ({children}) =>{
 
     return (
         <>
-        <header>
             <Nav />
-        </header>
-            {children}
-        <Footer/>
-    </>
+                {children}
+            <Footer/>
+        </>
     )
     
 }

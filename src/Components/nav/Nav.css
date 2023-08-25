@@ -1,50 +1,29 @@
-#container, nav{
-    padding-top: 0% !important;
-    padding-bottom: 0% !important;
-}
-
-header{
-padding: 1rem;
-    background-color: var(--strong-background);
-}
-
 nav{
     display: flex;
-}
-
-.container1{
-    align-items: top !important;
-    align-items: flex-start;
-}
-
-.containerTittle{
-    width: 50%;
-    gap: 1rem;
-    margin-right: 0% !important;
-    padding-right: 0% !important;
-}
-
-.containerButton{
     justify-content: end;
 }
 
-.tittle{
-    left: 2em;
-    margin-top:0px !important;
-    width: 45%;
-    font-size: 1rem;
-    height: auto !important;
-    color: white !important;
-}    
+.divLogo{
+    display: flex;
+    padding-left: 1rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.divLogo > img{
+    width: 200px;
+}
+
+.divLinks{
+    height: auto;
+}
 
 ul{
     justify-content: space-around;
     align-items: end;
-    padding-top: .3rem;;
-}
-
-.menuItem{
-    margin-right: 0px;
+    padding-top: .3rem;
+    padding-right: 1rem !important;
+   width: 100%;
 }
 
 .button{
@@ -59,45 +38,17 @@ ul{
     max-width: 150px;
 }
 
-.login > img{
-    width: 20px;
-    margin-right: 5px !important;
-}
-
-li{
-    padding: .3rem;
-}
-
-a{
-    color: black !important;
-}
-
 .buttonContainer{
     align-items: end;
     width: 100%;
+   
 }
-
-button{
-    padding: 0% !important;
-    margin: 0px;
-    width: 50px;
-}
-
-button:focus{
-    outline: 0px !important;
-}
-
-.navbar-toggler:focus{
-    box-shadow: none;
-}
-
-
 
 @media screen and (min-width: 768px) {
     
     .buttonContainer{
         width: auto;
+        min-width: 25%;
     }
    
 }
-
