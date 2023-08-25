@@ -2,6 +2,10 @@
     "navbar": [
         {
             "to":"/", 
+            "value":"Login"
+        },
+        {
+            "to":"/", 
             "value":"Home"
         },
         {

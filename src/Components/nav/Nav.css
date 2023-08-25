@@ -14,17 +14,38 @@ nav{
     width: 200px;
 }
 
-.divLinks{
-    height: auto;
+.divButtons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.avatar{
+    color: white !important;
+    background-color: var(--strong-background);
+    padding: .2rem !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 500;
+}
+
+.buttonMenu{
+    border: none !important;
+}
+
+.buttonMenu:focus-visible{
+    outline-color: var(--light-background) !important;
 }
 
 ul{
     justify-content: space-around;
     align-items: end;
-    padding-top: .3rem;
     padding-right: 1rem !important;
-   width: 100%;
+    width: 100%;
 }
+
+/*CREAR COMPONENTE*/
 
 .button{
     color: white !important;
@@ -41,7 +62,6 @@ ul{
 .buttonContainer{
     align-items: end;
     width: 100%;
-   
 }
 
 @media screen and (min-width: 768px) {
