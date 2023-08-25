@@ -23,8 +23,17 @@
     ]},
     "redes": [
         {
-            "to":"/#", 
-            "value":""
+            "src":"../../../../public/assets/images/instagram.jpg", 
+            "alt":"Logo Instagram"
+        },
+        {
+            "src":"../../../../public/assets/images/facebook.jpg", 
+            "alt":"Logo Facebook"
+        }
+        ,
+        {
+            "src":"../../../../public/assets/images/whatsapp.jpg", 
+            "alt":"Logo WhatsApp"
         }
     ]
 }
