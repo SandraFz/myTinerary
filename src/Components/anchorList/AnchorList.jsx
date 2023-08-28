@@ -10,7 +10,7 @@ const AnchorList = ({children, list}) => {
             {
             list.map(elem => {
                 
-                return  <li className="nav-item">
+                return  <li className="nav-item m-1">
                             <Anchor className="text" key={elem.value} to={elem.to}>{elem.value}</Anchor>
                         </li>
             })
