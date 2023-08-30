@@ -11,6 +11,10 @@
         {
             "to":"/cities", 
             "value":"Cities"
+        },
+        {
+            "to":"/itineraries/:id", 
+            "value":"Itineraries"
         }
     ],
     "footerLinks": {

@@ -27,14 +27,17 @@ a:hover {
   color: var(--dark-button);
 }
 
-body {
- /* background: var(--light-background);*/
-  margin: 1rem 0px;
+html{
+  width: 100%;
+  border: 2px solid blue;
   min-width: 260px;
+}
+
+body {
+  background: var(--light-background);
   align-items: center;
-  background-image: linear-gradient(to bottom, rgba(2, 48, 71, 0.5), rgba(251, 133, 0, 0.5)), url(./assets/paisaje.jpg);
-  background-position-y: 50%;
-  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 1200px) {
