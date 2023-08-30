@@ -10,7 +10,7 @@ function Footer() {
 
     return (
         <footer className="d-flex justify-content-between align-items-center p-3 footer">
-            <ul className="d-flex justify-content-between redes-group footerMenu">
+            <ul className="d-flex redes-group footerMenu">
                 {
                     aList.redes.map(elem => {
                         return <Anchor href="#" className="m-1 a-redes-logo d-inline-block">
@@ -19,7 +19,7 @@ function Footer() {
                     })
                 }
             </ul>
-            <ul className="navbar-nav d-flex justify-content-between redes-group footerMenu">
+            <ul className="navbar-nav d-flex footerMenu">
                 <AnchorList list={aList.navbar}/>
             </ul>
         </footer>

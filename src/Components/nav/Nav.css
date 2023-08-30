@@ -1,6 +1,10 @@
 nav{
-    display: flex;
-    justify-content: end;
+
+    border: 1px soid green !important;
+}
+
+.headerDiv{
+    
 }
 
 .divLogo{

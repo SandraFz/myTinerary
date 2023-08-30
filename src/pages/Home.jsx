@@ -7,7 +7,7 @@ import paisaje from '../assets//paisaje1.jpg'
 const Home = () =>{
 
     return (
-        <Hero image={paisaje} className="hero">
+        <Hero image={paisaje} className="">
             <Main/>
             <Carrusel/>
         </Hero>

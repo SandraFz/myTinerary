@@ -13,10 +13,10 @@ const aList = ArrayList.navbar
     return (
       <>
         <header>
-          <nav class="navbar navbar-dark navbar-expand-md w-100 align-items-top">
-            <div className="container-fluid container1">
+          <nav class="navbar navbar-dark navbar-expand-md align-items-top headerDiv">
+            <div className="container-fluid">
               
-              <div className="divLogo w-75">
+              <div className="divLogo">
                 <img src={logo} alt="" />
               </div>
                 
@@ -35,7 +35,7 @@ const aList = ArrayList.navbar
             </div>
             <div className="buttonContainer">
                 <div className="collapse navbar-collapse" id="navbarNav">
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex ">
                     <AnchorList list={aList}/>
                   </ul>
                 </div>

@@ -1,9 +1,10 @@
 footer {
-    left: 0;
+   /*  position: absolute; */
+    /* left: 0; */
     bottom: 0;
     width: 100%;
     background-color: var(--strong-background);
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .a-redes-logo {
@@ -16,13 +17,22 @@ footer {
     width: 40px;
     height: 40px;
 }
-
 .footerMenu{
-    flex-direction: row;
-    max-width: 30%;
+    flex-direction: column;
 }
-@media screen and (max-width: 400px) {
+
+.redes-group{
+    align-items: start !important
+}
+
+
+@media screen and (min-width: 560px) {
+    .footerMenu{
+        flex-direction: row;;
+        max-width: 50%;
+    }
+    
     .redes-group{
-        flex-direction: column;
+        justify-content: center;
     }
 }
