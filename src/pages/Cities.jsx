@@ -3,7 +3,7 @@ import Hero from "../layouts/Hero";
 import CardGral from "../Components/card/CardGral";
 /* import Data from '../assets/data/Cities.json' */
 
-const api = 'http://localhost:8000/api'
+const api = 'http://localhost:8000/api/cities'
 
 
 const Cities = () => {

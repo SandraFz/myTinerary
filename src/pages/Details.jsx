@@ -3,22 +3,30 @@ import { Link as Anchor, useParams } from "react-router-dom";
 import Hero from "../layouts/Hero";
 import axios from "axios";
 import './pages.css'
+import ItinerariesCard from "../Components/itineraryCard/ItinerariesCard";
+import { useSelector, useDispatch } from "react-redux";
+import {getCity} from "../store/actions/citiesActions";
+
 
 
 const Detail = () =>{
+    const dispatch = useDispatch()
 
-    const [city, setCity] = useState({})
-    const [imgWidth, setImgWidth] = useState(0)
-    const [imgHeight, setImgHeight] = useState(0)  
+    const city = useSelector(store => store.citiesReducer.city)
+
+    /* const [city, setCity] = useState({}) */
+   
+    /* const [imgWidth, setImgWidth] = useState(0)
+    const [imgHeight, setImgHeight] = useState(0)   */
 
     const {id} = useParams()
-    console.log('id es: '+id)
+    /* console.log('id es: '+id) */
 
     let api = 'http://localhost:8000/api'
 
-    const imgCity = new Image()
+    /* const imgCity = new Image()
 
-    imgCity.src = city.image
+    imgCity.src = city.image */
      
 
     useEffect(() =>{
@@ -31,23 +39,31 @@ const Detail = () =>{
                 console.log(err)
             }) */
     
-        fetch(api+'/'+id)
+        fetch(api+'/cities/'+id)
             .then(res => res.json())
-            .then(data => setCity(data.oneCity))
-            console.log('data es ' +city)
-
-            imgCity.onload = () =>{
+            /* .then(data => setCity(data.oneCity)) */
+            .then(data => dispatch(getCity({obj: data.oneCity})))
+            .catch(error => console.log(error)) 
+           /*  console.log(city) */
+        
+            /* console.log(itin) */
+        
+           /*  imgCity.onload = () =>{
 
                 setImgWidth(imgCity.width)
                 setImgHeight(imgCity.height) 
                 }
-            console.log(imgCity.width)
+            console.log(imgCity.width) */
     },[])
 
-
+    /* useEffect(() => {
+        fetch(api+`/itineraries/byCity?name=${city.name}`)
+            .then(res => res.json())
+            .then(dato => setItin(dato.response))
+    }, []) */
 
     return(
-        <Hero className="hero">
+        <Hero className=".hero">
             {city && (
                 <div className="justify-content-between p-3 p-1 rounded-2 containerInfo">
                     {/* <div> */}
@@ -82,6 +98,15 @@ const Detail = () =>{
                     Return
                 </Anchor>
             </div>
+            <ItinerariesCard name={city.name}/>
+            {
+                 /*  itin && (
+                    itin.map(elem =>{
+                        return <ItinerariesCard key={elem._id} itineraries={elem}/>
+                    })
+                )  */
+            }
+            
         </Hero> 
     )
 }

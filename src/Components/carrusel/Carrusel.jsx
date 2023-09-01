@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import Arrow from "../arrow/Arrow";
 import './Carrusel.css'
 import Data from '../../assets/data/Cities.json'
+import { useSelector, useDispatch } from "react-redux";
+import citiesActions from "../../store/actions/citiesActions.js";
+import { store } from "../../store/store.js";
+
+const {moveCarrousel} = citiesActions
 
 let left = {class:'left', leftUrl: './assets/images/arrow-left.png', leftAlt: 'Atrás'};
 let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-right.png', rightAlt: 'Adelante'};
@@ -9,22 +14,20 @@ let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-righ
 
 const Carrusel = () => {
 
-    let imagesCarrusel4= Data.cities;
-   
+    const storeArray = useSelector(store=>store.citiesReducer)
+    console.log(storeArray)
 
+    let imagesCarrusel4= Data.cities;
+    const dispatch = useDispatch()
+ 
     const [index, setIndex] = useState(0)
     const [shortArray, setShortArray] = useState([]);
-    
-    useEffect(()=>{
-        console.log(`Esto es Data con shortArray: ` +{shortArray})
-    }, [])
 
     useEffect(()=>{
     
         switch(index){        
             case imagesCarrusel4.length-3:
-/*                 console.log(`Case 1; index:` + index)
- */                let images1 = []; 
+                let images1 = []; 
                 imagesCarrusel4.slice(index, index+3).map(
                     elem => { images1.push(elem)}) 
                 images1.push(imagesCarrusel4[0])
@@ -33,8 +36,7 @@ const Carrusel = () => {
 
             case imagesCarrusel4.length-2:
                 let images2 = [];
-/*                 console.log(`Case 2; index:` + index)
- */                imagesCarrusel4.slice(index, index+2).map(
+                imagesCarrusel4.slice(index, index+2).map(
                     elem => {
                     images2.push(elem)})
                 imagesCarrusel4.slice(0, 2).map(
@@ -45,25 +47,21 @@ const Carrusel = () => {
 
             case imagesCarrusel4.length-1:
                 let images3 = []
-/*                 console.log(`Case 3; index:` + index)
- */                images3.push(imagesCarrusel4[imagesCarrusel4.length-1])
+                images3.push(imagesCarrusel4[imagesCarrusel4.length-1])
                 imagesCarrusel4.slice(0, 3).map(elem => {
                     images3.push(elem)
                 })
                 setShortArray(images3)
-/*                 console.log(`Case 3; index:` + index)
- */            break;
+            break;
             
             case imagesCarrusel4.length:
                 let images4 = []
                 images4 = imagesCarrusel4.slice(0, 4)
                 setShortArray(images4)
-/*                 console.log(`Case 4; index:` + index)
- */                break;
+                break;
             
             default:
-/*                 console.log(`Case default; index: ${index}`)
- */                let images = []
+                let images = []
                 if(index<imagesCarrusel4.length-3){
                     imagesCarrusel4.slice(index, index+4).map(elem => {
                         images.push(elem)
@@ -75,7 +73,6 @@ const Carrusel = () => {
                 setShortArray(images)
             break;
         }
-        console.log("shortArray:" +{shortArray})
     
         let interval = setInterval(
             slideRight, 5000)
@@ -105,7 +102,7 @@ const Carrusel = () => {
                 break
         }
       
-        console.log(index)
+       /*  console.log(index) */
     }
 
     let slideRight = () =>{
@@ -113,18 +110,23 @@ const Carrusel = () => {
             switch(index+4){
                 case imagesCarrusel4.length+3:
                     setIndex(3)
+                   /* dispatch(moveCarrousel({obj:3})) */
                     break;
                 case imagesCarrusel4.length+2:
                     setIndex(2)
+                    /* dispatch(moveCarrousel({obj:2})) */
                     break;
                 case imagesCarrusel4.length+1:
-                    setIndex(1)     
+                    setIndex(1)
+                    /* dispatch(moveCarrousel({obj:1})) */     
                     break;
                 case imagesCarrusel4.length:
                     setIndex(0)
+                    /* dispatch(moveCarrousel({obj:0})) */
                     break;
                 default:
                     setIndex(index+4)
+                    /* dispatch(moveCarrousel({obj:index+4})) */
                     break
             }
           

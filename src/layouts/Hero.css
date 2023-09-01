@@ -1,7 +1,7 @@
 .hero{
     border: 1px solid red;
     margin: 0px auto !important;
-    min-height: 100vh;
+    min-height: 100%;
     position: relative;
     
 }
