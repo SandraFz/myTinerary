@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import Hero from "../layouts/Hero";
 import CardGral from "../Components/card/CardGral";
 /* import Data from '../assets/data/Cities.json' */
+import paisaje from '../assets/paisaje4.jpg'
 
 const api = 'http://localhost:8000/api/cities'
 

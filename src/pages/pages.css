@@ -7,8 +7,11 @@
     margin-bottom: 1rem;
 }
 
-.wraper{
+.wrapper{
     margin-bottom: 6rem;
+    min-height: 100%;
+    position: relative;
+    border-color: 1rem solid green;
 }
 
 

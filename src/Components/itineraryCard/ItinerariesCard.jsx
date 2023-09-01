@@ -44,10 +44,11 @@ const ItinerariesCard = (/* {name} */) => {
                             {/* <img className="" src={data.image} alt="" /> */}
                             <div class="w-100 d-flex flex-column align-items-center justify-content-center text-detail mb-6">
                                 <h1>{elem.name}</h1>
-                                <p>Description</p>
+                                <p>{elem.price}</p>
                                 <div class="details d-flex flex-wrap justify-content-between">
-                                    <p>Detail</p>
-                                    <p>Detail</p>
+                                    <p>{elem.duration}</p>
+                                    <p>{elem.like}</p>
+                                    <p>{elem.hastags}</p>
                                 </div>
                             </div>
                         </div>
