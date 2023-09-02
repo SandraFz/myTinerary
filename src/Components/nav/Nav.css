@@ -3,9 +3,6 @@ header{
     border: 1px soid blue !important;
 }
 
-.headerDiv{
-}
-
 .divLogo{
     display: flex;
     padding-left: 1rem !important;
