@@ -63,19 +63,20 @@ const Detail = () =>{
     }, []) */
 
     return(
-        <Hero className=".hero">
+        <Hero>
             {city && (
-                <div className="justify-content-between p-3 p-1 rounded-2 containerInfo">
+                <div className="justify-content-between p-3 p-1 rounded-2 containerInfo" style={{backgroundImage: `linear-gradient(to bottom, 
+                rgba(2, 48, 71, 0.7), rgba(2, 48, 71, 0.7)), url(${city.image}`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
                     {/* <div> */}
-                    <div style={{backgroundImage: `url("${city.image}")`/* width:imgWidth, height:imgHeight */}} className="divImg">
+                    {/* <div  className="divImg"> */}
                        {/*  <img src={city.image} style={{with: {imgCity.width}}} className="figure-card figure-card1 rounded-top rounded-end mt-1 imgArticle"></img> */}
-                </div>
+                {/* </div> */}
                     {/* </div> */}
                     <div className="d-flex flex-column containerData">
-                        <h3>
+                         <h3>
                             {city.name}
                         </h3>
-                        <p>
+                        <p className="description">
                             {city.description}
                         </p>
                         {/* <div className="d-flex justify-content-between align-items-center g-5 w-100 button-card-group">
@@ -92,13 +93,22 @@ const Detail = () =>{
                         Return
                     </Anchor>
                     </div> */}
-            <div className="d-flex flex-column align-items-center">
-                <span className="fs-4 fw-bold">Under construction. Come back soon to see what's new.</span>
-                <Anchor to='/cities' className="button mt-3">
+            <div className="d-flex justify-content-center">
+                {/* <span className="fs-4 fw-bold">Under construction. Come back soon to see what's new.</span> */}
+                <Anchor to='/cities' className="button m-3 p-1">
                     Return
                 </Anchor>
+                <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    Itineraries
+                </Anchor>
             </div>
-            <ItinerariesCard name={city.name}/>
+
+            <div className="collapse navbar-collapse" id="itinList">
+                <ItinerariesCard name={city.name} className="itineariesCard"/>
+            </div>
+            
+
+            
             {
                  /*  itin && (
                     itin.map(elem =>{

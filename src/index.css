@@ -27,14 +27,7 @@ a:hover {
 }
 
 html{
-  width: 100% !important;
-  border: 2px solid blue;
   min-width: 260px;
-}
-
-body {
-  /* background: var(--light-background); */
-  height: 100%;
 }
 
 @media screen and (min-width: 1200px) {

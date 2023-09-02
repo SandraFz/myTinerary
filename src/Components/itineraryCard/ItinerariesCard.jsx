@@ -15,6 +15,7 @@ const ItinerariesCard = (/* {name} */) => {
     const name = useSelector(store => store.citiesReducer.cityName)
     const itin = useSelector(store => store.itinerariesReducer.itineraries)
     console.log(itin)
+    
     /* const [itin, setItin] = useState([]) */
 
     /* const {name} = useParams() */
@@ -30,26 +31,22 @@ const ItinerariesCard = (/* {name} */) => {
             .catch(error => console.log(error))
     },[])
 
-    /* console.log(Cities.cities[0].image)
-    let data = Cities.cities[0] */
     return (
         <>
                {
                     itin && (
                         itin.map(elem=>{
-                            return <div class="figure-detail w-100 d-flex flex-wrap align-items-center justify-content-center px-3 tarjeta mt-5 rounded-3" style={{backgroundImage:`url(${elem.image})`, backgroundPosition: 'center'}}  id="tarjeta">
-                            <div class="w-100 h-100 figure-detail" >
-        
-                            </div>
-                            {/* <img className="" src={data.image} alt="" /> */}
-                            <div class="w-100 d-flex flex-column align-items-center justify-content-center text-detail mb-6">
+                        return <div className="w-100 d-flex flex-wrap align-items-center justify-content-center px-3 tarjeta mt-5 rounded-3"  id="tarjeta">
+                            <div className="figure-detail d-flex" >
+                                <img className="" src={elem.image} alt="" />
                                 <h1>{elem.name}</h1>
-                                <p>{elem.price}</p>
-                                <div class="details d-flex flex-wrap justify-content-between">
-                                    <p>{elem.duration}</p>
-                                    <p>{elem.like}</p>
-                                    <p>{elem.hastags}</p>
-                                </div>
+                            </div>
+                            
+                            <div className="w-100 d-flex flex-column align-items-start justify-content-center text-detail mb-6">
+                                <p>Price: {"💵".repeat(elem.price)}</p>
+                                <p>Duration: {elem.duration}</p>
+                                <p>Likes: {elem.like}</p>
+                                <p>{elem.hastags}</p>
                             </div>
                         </div>
                         })

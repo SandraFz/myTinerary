@@ -154,12 +154,12 @@ const Carrusel = () => {
     
     return (
 
-        <div className="d-flex justify-center carrusel mb-3">
+        <div className="d-flex carrusel mb-3">
 
             <div className="left" onClick={slideLeft}>
                 <Arrow  className={left.class} src={left.leftUrl} alt={left.leftAlt}/>
             </div>
-            <div className="d-flex aligne-items-center flex-wrap containerImages">
+            <div className="d-flex flex-wrap containerImages">
                 {//Corresponde al switch
                        
                     shortArray.map(elem => {

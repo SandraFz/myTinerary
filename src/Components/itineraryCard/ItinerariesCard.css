@@ -1,4 +1,24 @@
 .figure-detail{
- /*    width: 90% !important;
-    height: 200px !important; */
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
 } 
+
+.figure-detail > img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--shadow-gral);
+}
+
+p{
+    color: black;
+}
+
+@media screen and (min-width: 500px) {
+    #tarjeta{
+        width: 80% !important;
+        margin: 5px auto !important;
+    }
+}
