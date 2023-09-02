@@ -25,6 +25,11 @@ footer {
     align-items: start !important
 }
 
+@media screen and (min-width: 400px) {
+    .footerBrand{
+        width: 80%;
+    }
+}
 
 @media screen and (min-width: 560px) {
     .footerMenu{
@@ -35,4 +40,10 @@ footer {
     .redes-group{
         justify-content: center;
     }
+
+    .footerBrand{
+        width: 50%;
+    }
 }
+
+

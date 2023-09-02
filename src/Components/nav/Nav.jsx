@@ -3,7 +3,7 @@ import './Nav.css'
 import AnchorList from "../anchorList/AnchorList";
 import {Link as Anchor} from 'react-router-dom'
 import ArrayList from '../../assets/data/links.json'
-import logo from '../../assets/img/brand-mytinerary.png'
+import logo from '../../../public/assets/images/brand-mytinerary-reducido.png'
 import hamburguer from '../../assets/img/menu-white.png'
 
 function Nav() {
@@ -13,7 +13,7 @@ const aList = ArrayList.navbar
     return (
       <>
         <header>
-          <nav class="navbar navbar-dark navbar-expand-md align-items-top headerDiv">
+          <nav className="navbar navbar-dark navbar-expand-md align-items-top headerDiv">
             <div className="container-fluid">
               
               <div className="divLogo">

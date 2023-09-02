@@ -54,7 +54,7 @@ const ItinerariesCard = (/* {name} */) => {
 
                     itin.length > 0 ? (
                         itin.map(elem=>{
-                        return <div className="w-100 d-flex flex-wrap align-items-center justify-content-center px-3 tarjeta mt-5 rounded-3"  id="tarjeta">
+                        return <div key={elem._id} className="w-100 d-flex flex-wrap align-items-center justify-content-center px-3 tarjeta mt-5 rounded-3"  id="tarjeta">
                             <div className="figure-detail d-flex" >
                                 <img className="" src={elem.image} alt="" />
                                 <h1>{elem.name}</h1>

@@ -17,6 +17,21 @@
   --shadow-gral: -5px -5px 8px 5px rgba(2, 48, 71, .8);
 }
 
+html{
+  /* width: 100%; */
+  min-width: 260px;
+  min-height: 100vh;
+}
+
+body{
+  width: 100%;
+  min-height: 100vh;
+}
+
+#raiz{
+  min-height: 100vh;
+}
+
 a {
   font-weight: 500;
   color: black;
@@ -26,13 +41,8 @@ a:hover {
   color: var(--dark-button);
 }
 
-html{
-  /* width: 100%; */
-  min-width: 260px;
-}
-
-body{
-  width: 100%;
+h1, h3{
+  text-align: center;
 }
 
 @media screen and (min-width: 1200px) {

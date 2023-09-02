@@ -95,11 +95,12 @@ const Cities = () => {
     return (
          <Hero>
             
-            <div class="d-flex flex-column-reverse w-100 align-items-center categories"> 
+            <div className="wrapper">
+            <div className="d-flex flex-column-reverse w-100 align-items-center categories"> 
                 
-                <form class="d-flex p-2 div-search">
+                <form className="d-flex p-2 div-search">
                     <input type="text" onChange={inputHandle} value={content}/>
-                    <button type="button" class="xButton button" onClick={buttonHandler} >x</button>
+                    <button type="button" className="xButton button" onClick={buttonHandler} >x</button>
                 </form>
             </div>
                 
@@ -115,6 +116,7 @@ const Cities = () => {
                    )           
                     
                 }                
+            </div>
             </div>
                          
          </Hero>

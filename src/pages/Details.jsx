@@ -64,6 +64,7 @@ const Detail = () =>{
 
     return(
         <Hero>
+            <div className="wrapper">
             {city && (
                 <div className="justify-content-between p-3 p-1 rounded-2 containerInfo" style={{backgroundImage: `linear-gradient(to bottom, 
                 rgba(2, 48, 71, 0.7), rgba(2, 48, 71, 0.7)), url(${city.image}`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
@@ -105,6 +106,7 @@ const Detail = () =>{
 
             <div className="collapse navbar-collapse" id="itinList">
                 <ItinerariesCard name={city.name} className="itineariesCard"/>
+            </div>
             </div>
             
 
