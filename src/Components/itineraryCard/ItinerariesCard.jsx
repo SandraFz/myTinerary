@@ -23,12 +23,16 @@ const ItinerariesCard = (/* {name} */) => {
     let api = 'http://localhost:8000/api/itineraries'
     console.log(name)
     useEffect(()=>{
-        fetch(api+`/byCity?name=${name}`)
+        if(name != ""){
+            fetch(api+`/byCity?name=${name}`)
             .then(res => res.json())
             .then(data => {
+                console.log(api+`/byCity?name=${name}`)
                 console.log(data.response)
                 dispatch(setItineraries({itineraries:data.response}))})
             .catch(error => console.log(error))
+        }
+        
     },[])
 
     return (
