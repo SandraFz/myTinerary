@@ -23,14 +23,14 @@ const citiesReducer = createReducer(initialState, (builder) => {
             city: action.payload.obj,
             cityName: action.payload.obj.name
         }
-    }),
+    })/* ,
     builder.addCase(getSearch, (store, action) =>{
         console.log(action)
         return{
             ...store,
             search: action.payload
         }
-    })
+    }) */
 })
 
 export default citiesReducer

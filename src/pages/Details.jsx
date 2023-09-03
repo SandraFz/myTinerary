@@ -11,7 +11,7 @@ const Detail = () =>{
     const dispatch = useDispatch()
 
     const city = useSelector(store => store.citiesReducer.city)
-
+    console.log(city)
     /* const [city, setCity] = useState({}) */
 
     const {id} = useParams()

@@ -10,7 +10,7 @@ import {setItineraries} from "../../store/actions/itinerariesActions";
 
 const ItinerariesCard = ({itin}) => {
 
-    const dispatch = useDispatch()
+   /*  const dispatch = useDispatch() */
 
     const name = useSelector(store => store.citiesReducer.cityName)
    /*  const itin = useSelector(store => store.itinerariesReducer.itineraries) */
