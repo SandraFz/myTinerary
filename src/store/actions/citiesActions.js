@@ -13,6 +13,10 @@ export const getCity = createAction('get_city', (obj) =>{
     }
 })
 
-
+export const getSearch = createAction('get_search', (txt) => {
+    return {
+        payload: txt
+    }
+})
 
 export default {moveCarrousel, getCity}

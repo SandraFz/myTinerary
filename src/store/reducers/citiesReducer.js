@@ -1,8 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {getCity, moveCarrousel} from '../actions/citiesActions.js'
+import {getCity, getSearch, moveCarrousel} from '../actions/citiesActions.js'
 
 const initialState = {
     count: 0,
+    search: '',
     shortArray: [],
     city: {},
     cityName: ''
@@ -21,6 +22,13 @@ const citiesReducer = createReducer(initialState, (builder) => {
             ...store,
             city: action.payload.obj,
             cityName: action.payload.obj.name
+        }
+    }),
+    builder.addCase(getSearch, (store, action) =>{
+        console.log(action)
+        return{
+            ...store,
+            search: action.payload
         }
     })
 })
