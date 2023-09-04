@@ -5,7 +5,7 @@ import Home from './pages/home'
 import Error404 from './pages/error404'
 import Cities from './pages/Cities'
 import Detail from './pages/Details'
-import Itineraries from './pages/Itineraries'
+import Activities from './pages/Activities'
 
 const router = createBrowserRouter([
   { path:'/', element:<Home/>},
