@@ -3,26 +3,37 @@ import Hero from "../layouts/Hero";
 import CardGral from "../Components/card/CardGral";
 /* import Data from '../assets/data/Cities.json' */
 import paisaje from '../assets/paisaje4.jpg'
+import { useSelector, useDispatch } from "react-redux";
+import { filter, getAllCities } from "../store/actions/citiesActions";
 
 const api = 'http://localhost:8000/api/cities'
 
 
 const Cities = () => {
     
-    const [cityList, setCityList] = useState([])
-    const [content, setContent] = useState('')
+    const data = useSelector(store => store.citiesReducer)
+    console.log(data)
+    const allCities = useSelector(store => store.citiesReducer.response)
+    const cityList = data.cities
+    console.log(cityList)
+    const counter = data.count
+    const dispatch = useDispatch()
+
+    /* const [cityList, setCityList] = useState(allCities) */
+    /* const [content, setContent] = useState('') */
+    /* const [initiaList, setInitiaList] = useState([]) */
     const [dispMessage, setDispMessage] = useState("d-none")
     const [dispCards, setDispCards] = useState("d-flex justify-content-center flex-wrap gap-2 px-3")
+    const {index, setIndex} = useState(counter)
 
     const message = document.getElementById('empty')
     const cards = document.getElementById('cards-group')
-    
-    /* useEffect(() =>{
-        fetch(api)
-            .then(res => res.json())
-            .then(data => setCityList(data.list))
-            .catch(err => console.error(err))
-    }, [])*/
+
+    /useEffect(() =>{
+       
+        dispatch(getAllCities({}))
+        
+    }, []) 
 
    /* useEffect(() => {
         fetch(api+(content?`/name?name=${content}`:''))
@@ -36,10 +47,10 @@ const Cities = () => {
 
     useEffect(() => {
         
-        fetch(api+(content?`/name?name=${content}`:''))
+        /* fetch(api+(content?`/name?name=${content}`:''))
             .then(res => res.json())
             .then(data => {
-                if (data.success) {
+                if (data.success) {*/
 
                     if(data.count == 0){
                         setDispMessage('d-block fs-4 fw-bold')
@@ -48,32 +59,18 @@ const Cities = () => {
                     } else {
                         setDispMessage('d-none')
                         setDispCards("d-flex justify-content-center flex-wrap gap-2 px-3")
-                        console.log(data, empty); 
-                        setCityList(data.response);
-                        console.log(cityList)
+                        /* console.log(data, empty);  */
+                        /* setCityList(data.response); */
+                        /* console.log(cityList) */
                     }
-
-                    /* if(data.count > 0){
-                        
-                   /*  setShow(true) */
-                        
-                    /* } else {
-                        console.log(data.message) */
-                        /* message.style.display='none' */
-                    /* } */ 
-                } else {
-                    /* if(data.count > 1){
-                        setShow('d-block') */
+                /*} else {
                         console.log(data.message);
-                   /*  } */
-                    
                 }
                 message.className=dispMessage
                     cards.className=dispCards
-                
             })
-            .catch(err => console.log(err));
-    }, [content, cards]);
+            .catch(err => console.log(err)); */
+    }, [/* content, cards*/ index]);
 
     /* useEffect(() => {
         console.log(cityList)
@@ -81,8 +78,9 @@ const Cities = () => {
 
    let inputHandle = (e) => {
      
-        setContent(e.target.value)
-        
+        /* setContent(e.target.value) */
+        console.log(e.target.value)
+        dispatch(filter({txt: e.target.value}))
     }
 
     let buttonHandler = () => {
@@ -99,7 +97,7 @@ const Cities = () => {
             <div className="d-flex flex-column-reverse w-100 align-items-center categories"> 
                 
                 <form className="d-flex p-2 div-search">
-                    <input type="text" onChange={inputHandle} value={content}/>
+                    <input type="text" onChange={inputHandle}/>
                     <button type="button" className="xButton button" onClick={buttonHandler} >x</button>
                 </form>
             </div>
@@ -114,7 +112,6 @@ const Cities = () => {
                         return <CardGral key={elem._id} city={elem}/>
                     })  
                    )           
-                    
                 }                
             </div>
             </div>

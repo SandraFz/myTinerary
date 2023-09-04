@@ -1,4 +1,7 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const api = 'http://localhost:8000/api/cities'
 
 export const moveCarrousel = createAction('move_carrusel', (obj) =>{
     
@@ -19,4 +22,33 @@ export const getSearch = createAction('get_search', (txt) => {
     }
 })
 
-export default {moveCarrousel, getCity}
+export const getAllCities = createAsyncThunk('get_all_cities', async({}) => {
+    try {
+        const response = await axios.get(api);
+        const allCities = response.data;
+        console.log(api)
+        return allCities
+    } catch (error) {
+        console.log(error)
+        return []
+    }
+})
+
+export const filter = createAsyncThunk('filter', async (txt) =>{
+    console.log(txt)
+    try {
+            const response = await axios.get(api + (txt.txt ? `/name?name=${txt.txt}` : ''));
+            const dataFilter = response.data; 
+            console.log(api + (txt ? `/name?name=${txt.txt}` : ''))
+            console.log(dataFilter);
+            return dataFilter;
+    } catch (error) {
+        console.log(error)
+        return []
+    }
+    /* return {
+        payload: txt
+    } */
+})
+
+export default {moveCarrousel, getCity, filter, getAllCities}
