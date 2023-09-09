@@ -33,13 +33,13 @@ p{
     height: 32px;
 }
 
-.info{
+/* .info{
    width: 100px;
    padding: .4rem;
    justify-content: center;
-}
+} */
 
-.info {
+.infoAnimation {
     animation: bit 5000ms infinite ease;
     animation-delay: 1s;
 }

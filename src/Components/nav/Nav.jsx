@@ -5,6 +5,7 @@ import {Link as Anchor} from 'react-router-dom'
 import ArrayList from '../../assets/data/links.json'
 import logo from '../../../public/assets/images/brand-mytinerary-reducido.png'
 import hamburguer from '../../assets/img/menu-white.png'
+import SingUp from "../../pages/SingIn";
 
 function Nav() {
 
@@ -22,10 +23,10 @@ const aList = ArrayList.navbar
                 
               <div className="divButtons w-25">
 
-                <div className="avatar">
+                <Anchor to="/singup" className="avatar">
                   <img src="/assets/images/perfil-white.png" alt="" />
-                </div>
-
+                </Anchor>
+        
                 < button className="navbar-toggler buttonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <img className="menuItem" src={"/assets/images/menu.png"} alt="" />
                 </button>

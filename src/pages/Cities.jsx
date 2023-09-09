@@ -52,7 +52,7 @@ const Cities = () => {
             .then(data => {
                 if (data.success) {*/
 
-                    if(data.count == 0){
+                    if(index === 0){
                         setDispMessage('d-block fs-4 fw-bold')
                         setDispCards("d-none justify-content-center flex-wrap gap-2 px-3")
                         console.log(data.message);
@@ -65,9 +65,9 @@ const Cities = () => {
                     }
                 /*} else {
                         console.log(data.message);
-                }
+                }x|
                 message.className=dispMessage
-                    cards.className=dispCards
+                cards.className=dispCards
             })
             .catch(err => console.log(err)); */
     }, [/* content, cards*/ index]);
@@ -94,26 +94,26 @@ const Cities = () => {
          <Hero>
             
             <div className="wrapper">
-            <div className="d-flex flex-column-reverse w-100 align-items-center categories"> 
-                
-                <form className="d-flex p-2 div-search">
-                    <input type="text" onChange={inputHandle}/>
-                    <button type="button" className="xButton button" onClick={buttonHandler} >x</button>
-                </form>
-            </div>
-                
-            <span id="empty">There's no cities whit that name.</span>
+                <div className="d-flex flex-column-reverse w-100 align-items-center categories"> 
+                    
+                    <form className="d-flex p-2 div-search">
+                        <input type="text" onChange={inputHandle}/>
+                        <button type="button" className="xButton button" onClick={buttonHandler} >x</button>
+                    </form>
+                </div>
+                    
+                <span id="empty">There's no cities whit that name.</span>
 
-            <div /* className="d-flex justify-content-center flex-wrap gap-2 px-3" */ id="cards-group">
-                
-                {     
-                   cityList && (
-                    cityList.map(elem =>{
-                        return <CardGral key={elem._id} city={elem}/>
-                    })  
-                   )           
-                }                
-            </div>
+                <div className="d-flex justify-content-center flex-wrap gap-2 px-3" id="cards-group">
+                    
+                    {     
+                    cityList && (
+                        cityList.map(elem =>{
+                            return <CardGral key={elem._id} city={elem}/>
+                        })  
+                    )           
+                    }                
+                </div>
             </div>
                          
          </Hero>

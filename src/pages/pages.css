@@ -31,6 +31,10 @@
     color: white;
 }
 
+.singinButton{
+    max-width: none !important;
+}
+
 /* .itineariesCard{
     display: none !important;
 } */

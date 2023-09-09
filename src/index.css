@@ -45,6 +45,12 @@ h1, h3{
   text-align: center;
 }
 
+.info{
+  width: 100px;
+  padding: .4rem;
+  justify-content: center;
+}
+
 @media screen and (min-width: 1200px) {
   body{
     background-position: 52%;
