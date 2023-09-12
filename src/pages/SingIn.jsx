@@ -4,10 +4,14 @@ import './pages.css'
 import { Link as Anchor } from "react-router-dom";
 import facebook from '../../public/assets/images/facebook (1).png'
 import google from '../../public/assets/images/google (1).png'
+import paisaje2 from '../assets/paisaje2.jpg'
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
 
-const SingUp = () => {
+
+const SingIn = () => {
     return (
-        <Hero>
+        <Hero image={paisaje2}>
             <div className="wrapper p-3">
                 <div>
                     <div>
@@ -19,15 +23,27 @@ const SingUp = () => {
                             Sing In
                         </h1>
                         <span className="m-2 w-100">
-                        New here? <Anchor>Sing Up</Anchor> and join us!
+                        New here? <Anchor to='/singup'>Sing Up</Anchor> and join us!
                         </span>
                         <input type="text" name="name" placeholder="Email" className="form-control rounded-2 m-2 p-1"/>
                         <input type="text" name="name" placeholder="Password" className="form-control rounded-2 m-2 p-1"/>
                         <Anchor to='Home' className="button my-2 p-2 singinButton w-100">Sing In</Anchor>
                         <p>———————— or ————————</p>
-                        <button className="button">
+                        {/* <button className="button">
                             <img className="" src={google} alt="Login with Google" />
-                        </button>
+                        </button> */}
+                        <GoogleOAuthProvider clientId="563279997730-7ncra9if59b87itmggarheiop3ajpgm4.apps.googleusercontent.com" >
+                            <GoogleLogin
+                                onSuccess={credentialResponse => {
+                                    console.log(credentialResponse);
+                                    let infoUser = jwtDecode(credentialResponse.credential)
+                                    console.log(infoUser)
+                                }}
+                                onError={() => {
+                                    console.log('Login Failed');
+                                }}
+                            />
+                        </GoogleOAuthProvider>
                         <button>
                             <img className="" src={facebook} alt="Login with Facebook" />
                         </button>
@@ -38,4 +54,4 @@ const SingUp = () => {
     )
 }
 
-export default SingUp
+export default SingIn

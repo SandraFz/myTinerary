@@ -6,7 +6,8 @@ import Error404 from './pages/error404'
 import Cities from './pages/Cities'
 import Detail from './pages/Details'
 import Activities from './pages/Activities'
-import SingUp from './pages/SingIn'
+import SingUp from './pages/SingUp'
+import SingIn from './pages/SingIn'
 
 const router = createBrowserRouter([
   { path:'/', element:<Home/>},
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   { path:'/error404', element:<Error404/>},
   { path: '/detail/:id', element:<Detail/>},
   {path: '/singup', element:<SingUp/>},
+  {path: '/singin', element:<SingIn/>},
   /* { path: '/itineraries/:id', element:<Itineraries/>}, */
   { path:'*', element:<Error404/>}
 ])

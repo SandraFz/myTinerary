@@ -55,7 +55,7 @@ const Cities = () => {
                     if(index === 0){
                         setDispMessage('d-block fs-4 fw-bold')
                         setDispCards("d-none justify-content-center flex-wrap gap-2 px-3")
-                        console.log(data.message);
+                        /* console.log(data.message); */
                     } else {
                         setDispMessage('d-none')
                         setDispCards("d-flex justify-content-center flex-wrap gap-2 px-3")
@@ -79,7 +79,8 @@ const Cities = () => {
    let inputHandle = (e) => {
      
         /* setContent(e.target.value) */
-        console.log(e.target.value)
+        console.log(e)
+        /* console.log(e.target.value) */
         dispatch(filter({txt: e.target.value}))
     }
 

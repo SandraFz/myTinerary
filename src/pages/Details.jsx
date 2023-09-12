@@ -36,6 +36,7 @@ const Detail = () =>{
             .catch(error => console.log(error)) 
     },[])
 
+
     /* useEffect(() => {
         fetch(api+`/itineraries/byCity?name=${city.name}`)
             .then(res => res.json())
@@ -44,7 +45,7 @@ const Detail = () =>{
 
     return(
         <Hero>
-            <div className="wrapper">
+            <div className="wrapper wrapperDetails">
                 {city && (
                     <div className="justify-content-between p-3 p-1 rounded-2 containerInfo" style={{backgroundImage: `linear-gradient(to bottom, 
                     rgba(2, 48, 71, 0.7), rgba(2, 48, 71, 0.7)), url(${city.image}`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
@@ -63,23 +64,26 @@ const Detail = () =>{
                     
                 )}
                     
-                <div className="d-flex justify-content-center">
+                <div className="itinContainer">
                     
-                    <Anchor to='/cities' className="button m-3 p-1">
-                        Return
-                    </Anchor>
-                    <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        Itineraries
-                    </Anchor>
+                    <div className="d-flex justify-content-center">
+                    
+                        <Anchor to='/cities' className="button m-3 p-1">
+                            Return
+                        </Anchor>
+                        <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            Itineraries
+                        </Anchor>
+                    </div>
+                    <div className="collapse navbar-collapse" id="itinList">
+                    
+                    { city.itineraries && (
+                        
+                            <ItinerariesCard itin={city.itineraries} className="itineariesCard"/>
+                        
+                        )}
+                        </div>
                 </div>
-                <div className="collapse navbar-collapse" id="itinList">
-                { city.itineraries && (
-                     
-                         <ItinerariesCard itin={city.itineraries} className="itineariesCard"/>
-                    
-                     
-                     )}
-                     </div>
             </div>
             
         </Hero> 

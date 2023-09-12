@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../Components/nav/Nav";
 import Footer from "../Components/footer/Footer";
 import './Hero.css'

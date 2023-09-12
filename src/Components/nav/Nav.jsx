@@ -23,7 +23,7 @@ const aList = ArrayList.navbar
                 
               <div className="divButtons w-25">
 
-                <Anchor to="/singup" className="avatar">
+                <Anchor to="/singin" className="avatar">
                   <img src="/assets/images/perfil-white.png" alt="" />
                 </Anchor>
         

@@ -154,7 +154,7 @@ const Carrusel = () => {
     
     return (
 
-        <div className="d-flex carrusel mb-3">
+        <div className="d-flex carrusel my-3 w-75">
 
             <div className="left" onClick={slideLeft}>
                 <Arrow  className={left.class} src={left.leftUrl} alt={left.leftAlt}/>
