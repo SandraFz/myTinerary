@@ -17,8 +17,9 @@
             "value":"Cities"
         },
         {
-            "to":"/Home", 
-            "value":"LogOut"
+            "to":"/", 
+            "value":"LogOut",
+            "fn": "localStorage.clear()"
         }
     ],
     "footerLinks": {

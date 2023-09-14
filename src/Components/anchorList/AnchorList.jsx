@@ -11,7 +11,7 @@ const AnchorList = ({children, list}) => {
             list.map(elem => {
                 
                 return  <li className="nav-item m-1"  key={elem.value}>
-                            <Anchor className="text" to={elem.to}>{elem.value}</Anchor>
+                            <Anchor className="text" /* onClick={elem.fn}  */to={elem.to}>{elem.value}</Anchor>
                         </li>
             })
             

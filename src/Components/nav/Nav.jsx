@@ -12,8 +12,7 @@ import avatar from '/assets/images/perfil-white.png'
 function Nav() {
 
   const online = localStorage.getItem('online')
-  const user = JSON.parse(localStorage.getItem('user')).loginUser
-  console.log(user)
+  const user = localStorage.getItem('user')
 
   const aList = ArrayList.navbar
 
@@ -24,8 +23,9 @@ function Nav() {
     /* setLoged(online) */
     /* loged===true?setPhoto(user.photo):setPhoto(avatar) */
     if(user){
-    console.log(user.photo)
-      setPhoto(user.photo)
+      const userSesion = JSON.parse(user).loginUser
+    console.log(userSesion)
+      setPhoto(userSesion.photo)
     } else {
       setPhoto(avatar)
     }
@@ -45,6 +45,7 @@ function Nav() {
 
                 <Anchor to="/singin" className="avatar">
                   <img src={photo} alt="" />
+                  {/* <div className="img" style={{backgroundImage: `url(${photo}`}}></div> */}
                 </Anchor>
         
                 < button className="navbar-toggler buttonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

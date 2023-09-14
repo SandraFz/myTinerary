@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Hero from "../layouts/Hero";
 import './pages.css'
-import { Link as Anchor, json } from "react-router-dom";
+import { Link as Anchor, json, useNavigate } from "react-router-dom";
 import facebook from '../../public/assets/images/facebook (1).png'
 import google from '../../public/assets/images/google (1).png'
 import paisaje2 from '../assets/paisaje2.jpg'
@@ -11,6 +11,7 @@ import axios from "axios";
 import LoginButton from "../Components/loginButton/LoginButton";
 import { useDispatch } from "react-redux";
 import userActions from "../store/actions/userActions.js";
+import { Navigate } from "react-router-dom";
 
 const api = 'http://localhost:8000/api/auth'
 const apiGoogle = 'https://www.googleapis.com/oauth2/v3/userinfo'
@@ -22,7 +23,7 @@ const SingIn = () => {
     const storage = localStorage
     /* console.log(storage) */
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
     const form = useRef({})
 
     const [userData, setUserData] = useState({
@@ -43,36 +44,40 @@ const SingIn = () => {
     oneTapLogin
 }, []) */
 
-const handleSubmit = async () => {
-        
-    const formData = new FormData(form.current)
-    setUserData({
-        email: formData.get('email'),
-        password: formData.get('password')
-    })
-    console.log("handleSubmit funciona")
-}
+
 
      useEffect(() => {
         console.log(userData)
-        if(userData.email && userData.password){
+        try {
+            if(userData.email && userData.password){
             
-            axios.post(api+"/in", userData)
-                .then(response => {
-                   
-                    console.log(response.data)
-                    dispatch(loginUser({response}))
-                    localStorage.setItem('token', response.data.token)
-                    localStorage.setItem('online', true)
-                    localStorage.setItem('user', JSON.stringify(response.data))
-                    console.log(localStorage)
-                  
-                })
-            
-        } else {
-        
+                axios.post(api+"/in", userData)
+                    .then(response => {
+                       
+                        console.log(response.data)
+                        dispatch(loginUser({response}))
+                        localStorage.setItem('token', response.data.token)
+                        localStorage.setItem('online', true)
+                        localStorage.setItem('user', JSON.stringify(response.data))
+                        console.log(localStorage)
+                      
+                    }) 
+            } 
+           
+        } catch (error) {
+            console.log(error)
         }
     },[userData]) 
+
+    const handleSubmit = async () => {
+        
+        const formData = new FormData(form.current)
+        setUserData({
+            email: formData.get('email'),
+            password: formData.get('password')
+        })
+        console.log("handleSubmit funciona")
+    }
 
     /* const handleSubmitGoogle = async (infoUser) => {
         setUserData({
@@ -118,6 +123,7 @@ const handleSubmitGoogle = async (data) => {
         /* const res = await axios.post(api, userData)
             .then(console.log(res))
             console.log("handleSubmitGoogle funciona") */
+            
     } 
 
     return (
@@ -132,11 +138,11 @@ const handleSubmitGoogle = async (data) => {
                         <h1 className="m-2 w-100 text-aling-center">
                             Sing In
                         </h1>
-                        <span className="m-2 w-100">
-                        New here? <Anchor to='/singup'>Sing Up</Anchor> and join us!
+                        <span className="m-2 w-100 singin">
+                        New here? <Anchor className="singin" to='/singup'>Sing Up</Anchor> and join us!
                         </span>
-                        <input type="text" name="email" placeholder="Email" className="form-control rounded-2 m-2 p-1"/>
-                        <input type="text" name="password" placeholder="Password" className="form-control rounded-2 m-2 p-1"/>
+                        <input type="email" name="email" placeholder="Email" className="form-control rounded-2 m-2 p-1" required/>
+                        <input type="text" name="password" placeholder="Password" className="form-control rounded-2 m-2 p-1" required/>
                         <Anchor onClick={handleSubmit} className="button my-2 p-2 singinButton w-100">Sing In</Anchor>
                         <p>———————— or ————————</p>
                         {/* <button className="button">
