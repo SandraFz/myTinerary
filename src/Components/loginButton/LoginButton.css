@@ -1,0 +1,8 @@
+.platform{
+    background-color: white;
+    width: 80%;
+    border: 2px;
+    margin: 8px !important;
+    padding: 6px !important;
+    border-radius: 5px;
+}

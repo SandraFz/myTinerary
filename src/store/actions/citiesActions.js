@@ -3,26 +3,26 @@ import axios from "axios";
 
 const api = 'http://localhost:8000/api/cities'
 
-export const moveCarrousel = createAction('move_carrusel', (obj) =>{
+const moveCarrousel = createAction('move_carrusel', (obj) =>{
     
     return {
         payload: obj
     }
 })
 
-export const getCity = createAction('get_city', (obj) =>{
+const getCity = createAction('get_city', (obj) =>{
     return {
         payload: obj
     }
 })
 
-export const getSearch = createAction('get_search', (txt) => {
+const getSearch = createAction('get_search', (txt) => {
     return {
         payload: txt
     }
 })
 
-export const getAllCities = createAsyncThunk('get_all_cities', async({}) => {
+const getAllCities = createAsyncThunk('get_all_cities', async({}) => {
     try {
         const response = await axios.get(api);
         const allCities = response.data;
@@ -34,7 +34,7 @@ export const getAllCities = createAsyncThunk('get_all_cities', async({}) => {
     }
 })
 
-export const filter = createAsyncThunk('filter', async (txt) =>{
+const filter = createAsyncThunk('filter', async (txt) =>{
     console.log(txt)
     try {
             const response = await axios.get(api + (txt.txt ? `/name?name=${txt.txt}` : ''));
@@ -51,4 +51,4 @@ export const filter = createAsyncThunk('filter', async (txt) =>{
     } */
 })
 
-export default {moveCarrousel, getCity, filter, getAllCities}
+export default {moveCarrousel, getCity, getSearch, filter, getAllCities}

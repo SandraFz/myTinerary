@@ -1,19 +1,127 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Hero from "../layouts/Hero";
 import './pages.css'
-import { Link as Anchor } from "react-router-dom";
+import { Link as Anchor, json } from "react-router-dom";
 import facebook from '../../public/assets/images/facebook (1).png'
 import google from '../../public/assets/images/google (1).png'
 import paisaje2 from '../assets/paisaje2.jpg'
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider, GoogleLogin, useGoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
+import axios from "axios";
+import LoginButton from "../Components/loginButton/LoginButton";
+import { useDispatch } from "react-redux";
+import userActions from "../store/actions/userActions.js";
 
+const api = 'http://localhost:8000/api/auth'
+const apiGoogle = 'https://www.googleapis.com/oauth2/v3/userinfo'
+
+const { loginUser } = userActions
 
 const SingIn = () => {
+
+    const storage = localStorage
+    console.log(storage)
+    const dispatch = useDispatch()
+
+    const form = useRef({})
+
+    const [userData, setUserData] = useState({
+        email:"",
+        password:"",
+    })
+
+    /* useGoogleOneTapLogin({
+    onSuccess: credentialResponse => {
+        console.log(credentialResponse);
+    },
+    onError: () => {
+        console.log('Login Failed');
+    },
+    }); */
+
+/* useEffect(() => {
+    oneTapLogin
+}, []) */
+
+const handleSubmit = async () => {
+        
+    const formData = new FormData(form.current)
+    setUserData({
+        email: formData.get('email'),
+        password: formData.get('password')
+    })
+    console.log("handleSubmit funciona")
+}
+
+    useEffect(() => {
+        console.log(userData)
+        if(userData.email && userData.password){
+            
+            const res = axios.post(api+"/in", userData)
+                .then(response => {
+                    /* const data = response.json() */
+                    console.log(response.data)
+                    dispatch(loginUser({response}))
+                    localStorage.setItem('token', response.data.token)
+                    console.log(localStorage)
+                    /* if(!response.ok){
+                        throw new Error("Baaaad request")
+                    } */
+                })
+            console.log(res)
+        } else {
+        
+        }
+    },[userData])
+
+    /* const handleSubmitGoogle = async (infoUser) => {
+        setUserData({
+            email: infoUser.email,
+            password: "Abc123"
+        })
+        
+        const res = await axios.post(api, userData)
+        console.log(res)
+        if(!res.data.newUser){
+            alert(res.data.message)  
+        }
+    } */
+
+    /* const login = useGoogleLogin({
+        onSuccess: async tokenResponse =>{ 
+            console.log(tokenResponse)
+            const {data} = await axios.get(apiGoogle,{
+                headers:{
+                    Authorization: 'bearer '+tokenResponse.access_token
+                }
+            } )
+            console.log(data)
+            setUserData({
+                email: data.email,
+                password: "Abc123"
+            })
+            console.log("handleSubmitGoogle funciona")
+            const res = await axios.get(api/* +`/${data.email}` *//*, userData)
+            console.log(res)
+            
+        },
+      }); */
+
+    /* const handleSubmitGoogle = async (data) => {
+
+        setUserData({
+            email: data.email,
+            password: "Abc123"
+        })
+        console.log("handleSubmitGoogle funciona")
+        const res = await axios.get(api, userData)
+        console.log(res)
+    }  */
+
     return (
         <Hero image={paisaje2}>
             <div className="wrapper p-3">
-                <div>
+                <form ref={form}>
                     <div>
                         
                     </div>
@@ -25,30 +133,29 @@ const SingIn = () => {
                         <span className="m-2 w-100">
                         New here? <Anchor to='/singup'>Sing Up</Anchor> and join us!
                         </span>
-                        <input type="text" name="name" placeholder="Email" className="form-control rounded-2 m-2 p-1"/>
-                        <input type="text" name="name" placeholder="Password" className="form-control rounded-2 m-2 p-1"/>
-                        <Anchor to='Home' className="button my-2 p-2 singinButton w-100">Sing In</Anchor>
+                        <input type="text" name="email" placeholder="Email" className="form-control rounded-2 m-2 p-1"/>
+                        <input type="text" name="password" placeholder="Password" className="form-control rounded-2 m-2 p-1"/>
+                        <Anchor onClick={handleSubmit} className="button my-2 p-2 singinButton w-100">Sing In</Anchor>
                         <p>———————— or ————————</p>
                         {/* <button className="button">
                             <img className="" src={google} alt="Login with Google" />
                         </button> */}
-                        <GoogleOAuthProvider clientId="563279997730-7ncra9if59b87itmggarheiop3ajpgm4.apps.googleusercontent.com" >
-                            <GoogleLogin
-                                onSuccess={credentialResponse => {
+{/*                             <LoginButton fn={handleSubmitGoogle} logo={google} platform={'google'}
+ */}                           {/* <GoogleLogin 
+                                    onSuccess={credentialResponse => {
                                     console.log(credentialResponse);
                                     let infoUser = jwtDecode(credentialResponse.credential)
                                     console.log(infoUser)
+                                    handleSubmitGoogle(userData)
                                 }}
                                 onError={() => {
                                     console.log('Login Failed');
-                                }}
-                            />
-                        </GoogleOAuthProvider>
-                        <button>
-                            <img className="" src={facebook} alt="Login with Facebook" />
-                        </button>
+                                }} 
+                            />  */}
+                        <LoginButton logo={google} platform={'Login with Google'}/>
+                        <LoginButton logo={facebook} platform={'Login with Facebook'}/>
                     </div>
-                </div>
+                </form>
             </div>
         </Hero>
     )

@@ -5,7 +5,9 @@ import axios from "axios";
 import './pages.css'
 import ItinerariesCard from "../Components/itineraryCard/ItinerariesCard";
 import { useSelector, useDispatch } from "react-redux";
-import {getCity} from "../store/actions/citiesActions";
+import citiesActions from "../store/actions/citiesActions";
+
+const {getCity} = citiesActions
 
 const Detail = () =>{
     const dispatch = useDispatch()

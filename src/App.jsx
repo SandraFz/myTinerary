@@ -8,6 +8,7 @@ import Detail from './pages/Details'
 import Activities from './pages/Activities'
 import SingUp from './pages/SingUp'
 import SingIn from './pages/SingIn'
+import EditUser from './pages/EditUser'
 
 const router = createBrowserRouter([
   { path:'/', element:<Home/>},
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   { path: '/detail/:id', element:<Detail/>},
   {path: '/singup', element:<SingUp/>},
   {path: '/singin', element:<SingIn/>},
+  {path: '/edit', element:<EditUser/>},
   /* { path: '/itineraries/:id', element:<Itineraries/>}, */
   { path:'*', element:<Error404/>}
 ])

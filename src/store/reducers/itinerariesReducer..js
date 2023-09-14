@@ -1,6 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { setItineraries } from "../actions/itinerariesActions";
-import { getCity } from "../actions/citiesActions";
+import citiesActions from "../actions/citiesActions";
+
+const { getCity } = citiesActions
 
 const initialState = {
     itineraries: []

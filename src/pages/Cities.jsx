@@ -4,7 +4,9 @@ import CardGral from "../Components/card/CardGral";
 /* import Data from '../assets/data/Cities.json' */
 import paisaje from '../assets/paisaje4.jpg'
 import { useSelector, useDispatch } from "react-redux";
-import { filter, getAllCities } from "../store/actions/citiesActions";
+import citiesActions from "../store/actions/citiesActions";
+
+const { filter, getAllCities } = citiesActions
 
 const api = 'http://localhost:8000/api/cities'
 

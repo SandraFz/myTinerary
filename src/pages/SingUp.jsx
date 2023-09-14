@@ -6,13 +6,16 @@ import facebook from '../../public/assets/images/facebook (1).png'
 import google from '../../public/assets/images/google (1).png'
 import paisaje3 from '../assets/paisaje3.jpg'
 import axios from "axios";
+import { GoogleOAuthProvider, GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
+import LoginButton from "../Components/loginButton/LoginButton";
+import { Navigate } from "react-router-dom";
 
-const api = 'http://localhost:8000/api/auth'
+const api = 'http://localhost:8000/api/auth/up'
 
 const SingUp = () => {
 
-
-const form = useRef({})
+const form = useRef({}) 
 
 /* const name = useRef('')
 const lastName = useRef('')
@@ -31,12 +34,12 @@ const [userData, setUserData] = useState({
 })
 
 useEffect(()=>{
-    console.log(userData)
+    /* console.log(userData) */
 },[userData])
 
 
 
-const handleSubmit = async (e) => {
+const handleSubmit = async () => {
     /* e.preventDefault() */
     const formData = new FormData(form.current)
     setUserData({
@@ -53,10 +56,45 @@ const handleSubmit = async (e) => {
     setUserData(formData.get('password'))
     setUserData(formData.get('photo'))
     setUserData(formData.get('country')) */
-    console.log("handleSubmit funciona")
+    /* console.log("handleSubmit funciona")
     const res = await axios.post(api, userData)
-    console.log(res)
+    console.log(res) */
+    
 }
+
+const handleSubmitGoogle = async (infoUser) => {
+    /* e.preventDefault() */
+    setUserData({
+        name: infoUser.given_name,
+        lastName: infoUser.family_name,
+        email: infoUser.email,
+        password: "Abc123",
+        photo:  infoUser.picture,
+        country: " "
+    })
+}
+
+useEffect(() => {
+
+    if(userData.name
+        && userData.lastName
+        && userData.email
+        &&userData.password){
+            const res = axios.post(api, userData)
+            .then(resposne => console.log(resposne))
+            console.log(res)
+        }
+    
+}, [userData])
+
+
+/* const login = useGoogleLogin({
+    onSuccess: tokenResponse => {
+        console.log(tokenResponse)
+        let infoUser = jwtDecode(credentialResponse.credential)
+        console.log(infoUser)
+    }
+}) */
 
     return (
         <Hero image={paisaje3}>
@@ -88,12 +126,24 @@ const handleSubmit = async (e) => {
                         </select>
                         <Anchor onClick={handleSubmit} /* to='/singin' */ className="button my-2 p-2 singinButton w-100">Sing In</Anchor>
                         <p>———————— or ————————</p>
-                        <button className="button">
-                            <img className="" src={google} alt="Login with Google" />
-                        </button>
-                        <button>
-                            <img className="" src={facebook} alt="Login with Facebook" />
-                        </button>
+                        {/* <GoogleOAuthProvider clientId="563279997730-7ncra9if59b87itmggarheiop3ajpgm4.apps.googleusercontent.com"> */}
+                            {/* <LoginButton onClick={() => login()} logo={google} platform={'google'}/> */}
+                            <GoogleLogin 
+                                className="button"
+                                onSuccess={credentialResponse => {
+                                    console.log(credentialResponse);
+                                    let infoUser = jwtDecode(credentialResponse.credential)
+                                    console.log(infoUser)
+                                    handleSubmitGoogle(infoUser)
+                                }}
+                                onError={() => {
+                                    console.log('Login Failed');
+                                }}>
+                                <img className="google" src={google} alt="Login with Google" />
+                            </GoogleLogin>
+                            
+                        {/* </GoogleOAuthProvider> */}
+                            <LoginButton logo={facebook} platform={'Login with facebook'}/>
                     </div>
                 </form>
             </div>

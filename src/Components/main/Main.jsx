@@ -1,8 +1,10 @@
 import React, { useEffect } from "react"
 import './Main.css'
 import { Link as Anchor } from "react-router-dom"
-import { getAllCities } from "../../store/actions/citiesActions"
+import citiesActions from "../../store/actions/citiesActions"
 import { useDispatch } from "react-redux"
+
+const { getAllCities } = citiesActions
 
 const Main = () => {
 

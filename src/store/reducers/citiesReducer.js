@@ -1,5 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {filter, getAllCities, getCity, getSearch, moveCarrousel} from '../actions/citiesActions.js'
+import citiesActions/* {moveCarrousel, getCity, getSearch, filter, getAllCities} */ from '../actions/citiesActions.js'
+
+const {moveCarrousel, getCity, getSearch, filter, getAllCities} = citiesActions
 
 const initialState = {
     count: 0,
