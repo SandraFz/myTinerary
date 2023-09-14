@@ -15,7 +15,7 @@ let right = {class: 'right', rightUrl: '../../../public/assets/images/arrow-righ
 const Carrusel = () => {
 
     const storeArray = useSelector(store=>store.citiesReducer)
-    console.log(storeArray)
+    /* console.log(storeArray) */
 
     let imagesCarrusel4= Data.cities;
     const dispatch = useDispatch()
@@ -163,8 +163,9 @@ const Carrusel = () => {
                 {//Corresponde al switch
                        
                     shortArray.map(elem => {
-                        return <div className="m-1 cardDiv">
-                        <img className="carImg5" key={elem.id} src={elem.image} alt={elem.name} />
+                      
+                        return <div className="m-1 cardDiv" key={elem.id}>
+                        <img className="carImg5"  src={elem.image} alt={elem.name} />
                         <div className="spanDiv">
                             <span key={elem.id}>{elem.name}</span>
                         </div>

@@ -20,7 +20,7 @@ const { loginUser } = userActions
 const SingIn = () => {
 
     const storage = localStorage
-    console.log(storage)
+    /* console.log(storage) */
     const dispatch = useDispatch()
 
     const form = useRef({})
@@ -53,26 +53,26 @@ const handleSubmit = async () => {
     console.log("handleSubmit funciona")
 }
 
-    useEffect(() => {
+     useEffect(() => {
         console.log(userData)
         if(userData.email && userData.password){
             
-            const res = axios.post(api+"/in", userData)
+            axios.post(api+"/in", userData)
                 .then(response => {
-                    /* const data = response.json() */
+                   
                     console.log(response.data)
                     dispatch(loginUser({response}))
                     localStorage.setItem('token', response.data.token)
+                    localStorage.setItem('online', true)
+                    localStorage.setItem('user', JSON.stringify(response.data))
                     console.log(localStorage)
-                    /* if(!response.ok){
-                        throw new Error("Baaaad request")
-                    } */
+                  
                 })
-            console.log(res)
+            
         } else {
         
         }
-    },[userData])
+    },[userData]) 
 
     /* const handleSubmitGoogle = async (infoUser) => {
         setUserData({
@@ -88,11 +88,12 @@ const handleSubmit = async () => {
     } */
 
     /* const login = useGoogleLogin({
+        
         onSuccess: async tokenResponse =>{ 
             console.log(tokenResponse)
             const {data} = await axios.get(apiGoogle,{
                 headers:{
-                    Authorization: 'bearer '+tokenResponse.access_token
+                    Authorization: 'Bearer '+tokenResponse.access_token
                 }
             } )
             console.log(data)
@@ -101,22 +102,23 @@ const handleSubmit = async () => {
                 password: "Abc123"
             })
             console.log("handleSubmitGoogle funciona")
-            const res = await axios.get(api/* +`/${data.email}` *//*, userData)
+            const res = await axios.get(api, userData)
             console.log(res)
             
         },
       }); */
 
-    /* const handleSubmitGoogle = async (data) => {
+const handleSubmitGoogle = async (data) => {
 
         setUserData({
             email: data.email,
-            password: "Abc123"
+            password: import.meta.env.VITE_PASSWORD_U
         })
-        console.log("handleSubmitGoogle funciona")
-        const res = await axios.get(api, userData)
-        console.log(res)
-    }  */
+        
+        /* const res = await axios.post(api, userData)
+            .then(console.log(res))
+            console.log("handleSubmitGoogle funciona") */
+    } 
 
     return (
         <Hero image={paisaje2}>
@@ -140,8 +142,8 @@ const handleSubmit = async () => {
                         {/* <button className="button">
                             <img className="" src={google} alt="Login with Google" />
                         </button> */}
-{/*                             <LoginButton fn={handleSubmitGoogle} logo={google} platform={'google'}
- */}                           {/* <GoogleLogin 
+                            <LoginButton /*onClick={ (e) =>  {e.preventDefault(), login()}}*/  fn={handleSubmitGoogle}  logo={google} platform={'google'}/> 
+                            {/* <GoogleLogin 
                                     onSuccess={credentialResponse => {
                                     console.log(credentialResponse);
                                     let infoUser = jwtDecode(credentialResponse.credential)
@@ -150,9 +152,9 @@ const handleSubmit = async () => {
                                 }}
                                 onError={() => {
                                     console.log('Login Failed');
-                                }} 
-                            />  */}
-                        <LoginButton logo={google} platform={'Login with Google'}/>
+                                }} */}
+                             
+                        {/* <LoginButton logo={google} platform={'Login with Google'}/> */}
                         <LoginButton logo={facebook} platform={'Login with Facebook'}/>
                     </div>
                 </form>

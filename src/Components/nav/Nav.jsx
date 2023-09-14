@@ -7,19 +7,28 @@ import logo from '../../../public/assets/images/brand-mytinerary-reducido.png'
 import hamburguer from '../../assets/img/menu-white.png'
 import SingUp from "../../pages/SingIn";
 import { useSelector } from "react-redux";
+import avatar from '/assets/images/perfil-white.png'
 
 function Nav() {
 
-  const online = useSelector(store => store.userReducer.online)
-  const userPhoto = useSelector(store => store.userReducer.user.photo)
-  console.log(online)
+  const online = localStorage.getItem('online')
+  const user = JSON.parse(localStorage.getItem('user')).loginUser
+  console.log(user)
 
   const aList = ArrayList.navbar
 
-  const [photo, setPhoto] = useState("/assets/images/menu.png")
+  const [loged, setLoged] = useState(false)
+  const [photo, setPhoto] = useState(avatar)
 
   useEffect(() => {
-    userPhoto?setPhoto(userPhoto):"/assets/images/menu.png"
+    /* setLoged(online) */
+    /* loged===true?setPhoto(user.photo):setPhoto(avatar) */
+    if(user){
+    console.log(user.photo)
+      setPhoto(user.photo)
+    } else {
+      setPhoto(avatar)
+    }
   }, [photo])
 
     return (
@@ -35,12 +44,12 @@ function Nav() {
               <div className="divButtons w-25">
 
                 <Anchor to="/singin" className="avatar">
-                  <img src="/assets/images/perfil-white.png" alt="" />
+                  <img src={photo} alt="" />
                 </Anchor>
         
                 < button className="navbar-toggler buttonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   
-                    <img className="menuItem" src={userPhoto || "/assets/images/menu.png"} alt="" />
+                      <img className="menuItem" src="/assets/images/menu.png" alt="" />
                  
                 </button>
               

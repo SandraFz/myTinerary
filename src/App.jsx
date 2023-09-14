@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './App.css'
 import Home from './pages/home'
@@ -9,6 +9,10 @@ import Activities from './pages/Activities'
 import SingUp from './pages/SingUp'
 import SingIn from './pages/SingIn'
 import EditUser from './pages/EditUser'
+import { useDispatch } from 'react-redux'
+import userActions from './store/actions/userActions'
+
+const {keepOnline} = userActions
 
 const router = createBrowserRouter([
   { path:'/', element:<Home/>},
@@ -24,6 +28,16 @@ const router = createBrowserRouter([
 
 function App() {
   const [count, setCount] = useState(0)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    
+    if(localStorage.getItem('online')){
+      dispatch(keepOnline)
+    }
+    
+    /* console.log(localStorage) */
+  },[])
 
   return (
     <RouterProvider router={router} />

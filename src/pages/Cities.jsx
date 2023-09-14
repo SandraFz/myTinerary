@@ -14,10 +14,8 @@ const api = 'http://localhost:8000/api/cities'
 const Cities = () => {
     
     const data = useSelector(store => store.citiesReducer)
-    console.log(data)
     const allCities = useSelector(store => store.citiesReducer.response)
     const cityList = data.cities
-    console.log(cityList)
     const counter = data.count
     const dispatch = useDispatch()
 
@@ -79,10 +77,6 @@ const Cities = () => {
     }, [cityList]) */
 
    let inputHandle = (e) => {
-     
-        /* setContent(e.target.value) */
-        console.log(e)
-        /* console.log(e.target.value) */
         dispatch(filter({txt: e.target.value}))
     }
 

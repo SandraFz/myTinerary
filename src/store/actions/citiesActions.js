@@ -26,7 +26,7 @@ const getAllCities = createAsyncThunk('get_all_cities', async({}) => {
     try {
         const response = await axios.get(api);
         const allCities = response.data;
-        console.log(api)
+        /* console.log(api) */
         return allCities
     } catch (error) {
         console.log(error)

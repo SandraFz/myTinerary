@@ -68,7 +68,7 @@ const handleSubmitGoogle = async (infoUser) => {
         name: infoUser.given_name,
         lastName: infoUser.family_name,
         email: infoUser.email,
-        password: "Abc123",
+        password: import.meta.env.VITE_PASSWORD_U,
         photo:  infoUser.picture,
         country: " "
     })

@@ -1,8 +1,12 @@
 {
     "navbar": [
         {
-            "to":"/", 
+            "to":"/singin", 
             "value":"Login"
+        },
+        {
+            "to":"/singup", 
+            "value":"SingUp"
         },
         {
             "to":"/", 
@@ -11,6 +15,10 @@
         {
             "to":"/cities", 
             "value":"Cities"
+        },
+        {
+            "to":"/Home", 
+            "value":"LogOut"
         }
     ],
     "footerLinks": {

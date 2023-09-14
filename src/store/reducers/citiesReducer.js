@@ -14,7 +14,7 @@ const initialState = {
 
 const citiesReducer = createReducer(initialState, (builder) => {
     builder.addCase(moveCarrousel, (store, action) =>{
-        console.log(store)
+        /* console.log(store) */
         return{
             ...store,
             ...store.count += action.payload
@@ -28,7 +28,7 @@ const citiesReducer = createReducer(initialState, (builder) => {
         }
     })
     .addCase(getAllCities.fulfilled, (store, action) => {
-        console.log(action)
+        /* console.log(action) */
         return {
             ...store,
             cities: action.payload.response
