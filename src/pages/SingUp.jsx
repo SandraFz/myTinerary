@@ -10,6 +10,7 @@ import { GoogleOAuthProvider, GoogleLogin, useGoogleLogin } from "@react-oauth/g
 import jwtDecode from "jwt-decode";
 import LoginButton from "../Components/loginButton/LoginButton";
 import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const api = 'http://localhost:8000/api/auth/up'
 
@@ -76,14 +77,19 @@ const handleSubmitGoogle = async (infoUser) => {
 
 useEffect(() => {
 
-    if(userData.name
-        && userData.lastName
-        && userData.email
-        &&userData.password){
-            const res = axios.post(api, userData)
-            .then(resposne => console.log(resposne))
-            console.log(res)
-        }
+    try {
+        if(userData.name
+            && userData.lastName
+            && userData.email
+            &&userData.password){
+                const res = axios.post(api, userData)
+                .then(resposne => console.log(resposne))
+                console.log(res)
+               
+            }
+    } catch (error) {
+        console.log(error)
+    }
     
 }, [userData])
 
