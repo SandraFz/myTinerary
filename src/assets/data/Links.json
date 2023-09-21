@@ -2,19 +2,33 @@
     "navbar": [
         {
             "to":"/singin", 
-            "value":"Login"
+            "value":"Login",
+            "role": [
+                "default"
+            ]
         },
         {
             "to":"/singup", 
-            "value":"SingUp"
+            "value":"SingUp",
+            "role": [
+                "default"
+            ]
         },
         {
             "to":"/", 
-            "value":"Home"
+            "value":"Home",
+            "role": [
+                "default",
+                "logged"
+            ]
         },
         {
             "to":"/cities", 
-            "value":"Cities"
+            "value":"Cities",
+            "role": [
+                "default",
+                "logged"
+            ]
         }
     ],
     "footerLinks": {
