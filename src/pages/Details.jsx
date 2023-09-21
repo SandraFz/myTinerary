@@ -51,7 +51,7 @@ const Detail = () =>{
             } else if(itineraries.className.includes('d-flex')){
                 setDispItin('d-none')
             }
-    } */
+    }
     
     return(
         <Hero>
