@@ -22,8 +22,6 @@ const { loginUser } = userActions
 
 const SingIn = () => {
 
-    const storage = localStorage
-    /* console.log(storage) */
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const form = useRef({})

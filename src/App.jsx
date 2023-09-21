@@ -11,6 +11,7 @@ import SingIn from './pages/SingIn'
 import EditUser from './pages/EditUser'
 import { useDispatch } from 'react-redux'
 import userActions from './store/actions/userActions'
+import ProtectedRouter from './layouts/ProtectedRouter'
 
 const {keepOnline} = userActions
 
@@ -19,8 +20,14 @@ const router = createBrowserRouter([
   { path:'/cities', element:<Cities/>},
   { path:'/error404', element:<Error404/>},
   { path: '/detail/:id', element:<Detail/>},
-  {path: '/singup', element:<SingUp/>},
-  {path: '/singin', element:<SingIn/>},
+  {path: '/singup', element:
+                    <ProtectedRouter>
+                      <SingUp/>
+                    </ProtectedRouter>},
+  {path: '/singin', element:
+                    <ProtectedRouter>
+                      <SingIn/>
+                    </ProtectedRouter>},
   {path: '/edit', element:<EditUser/>},
   /* { path: '/itineraries/:id', element:<Itineraries/>}, */
   { path:'*', element:<Error404/>}
