@@ -12,6 +12,7 @@ import LoginButton from "../Components/loginButton/LoginButton";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { MySwal } from "../../utils/SWAL";
 
 const api = 'http://localhost:8000/api/auth/up'
 
@@ -35,6 +36,17 @@ const [userData, setUserData] = useState({
     country:""
 })
 
+const tostaditaStyle = {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  }
+
 useEffect(()=>{
     /* console.log(userData) */
 },[userData])
@@ -51,7 +63,7 @@ const handleSubmit = async () => {
     const photo= formData.get('photo')
     const country= formData.get('country')
 
-    if (name && lastName && email && password) {
+    if (name && lastName && email && password && photo) {
         if (!/\S+@\S+\.\S+/.test(email)) {
             toast('Introduce a valid email', tostaditaStyle);
         } 
@@ -97,12 +109,25 @@ useEffect(() => {
         if(userData.name
             && userData.lastName
             && userData.email
-            &&userData.password){
+            && userData.password){
                 const res = axios.post(api, userData)
-                .then(resposne => console.log(resposne))
+                .then(response => {
+                    console.log(response)
+                    /* if (response.status === 201) {
+                        return <Navigate to='/singin' />;
+                    } else {
+                        toast('Registration failed', tostaditaStyle);
+                    } */
+
+                    if(response.status === 200){
+                        toast('Registration failed', tostaditaStyle);
+                    }
+
+                    dis
+                })
                 console.log(res)
-               
             }
+            
     } catch (error) {
         console.log(error)
     }
@@ -147,9 +172,9 @@ useEffect(() => {
                             Password*:
                             <input type="text" name="password" /* value={} */ placeholder="Password" className="form-control rounded-2 p-1"/>
                         </label>
-                        <label htmlFor="url photo" className="singin w-100 mt-2">
-                            URL photo:
-                            <input type="text" name="photo" /* value={} */ placeholder="URL photo" className="form-control rounded-2 p-1"/>
+                        <label htmlFor="photo" className="singin w-100 mt-2">
+                            URL photo*:
+                            <input type="url" name="photo" /* value={} */ placeholder="URL photo" className="form-control rounded-2 p-1"/>
                         </label>
                         <label htmlFor="country" className="singin w-100 mt-2">
                             Country:
