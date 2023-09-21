@@ -14,7 +14,7 @@ import userActions from "../../store/actions/userActions";
 
 function Nav() {
 
-  const online = localStorage.getItem('online')
+  const status = localStorage.getItem('online')
   const user = localStorage.getItem('user')
   const dispatch = useDispatch()
 
@@ -38,21 +38,24 @@ function Nav() {
 
  
   function handleLogout () {
-    MySwal.fire({
-      title: <p>Do you want end session?</p>,
-      showConfirmButton: true,
-      confirmButtonText: "confirm",
-      showCancelButton: true,
-      cancelButtonText: "cancel",
-    }).then(fullfilled => {
-      console.log(fullfilled)
-      if(fullfilled.isConfirmed){
-        dispatch(userActions.logout())
-        window.location.reload()
-      }
-    }/* () => {
-      return MySwal.fire(<p>Shorthand works too</p>)
-    } */)
+    if(status){
+      MySwal.fire({
+        title: <p>Do you want end session?</p>,
+        showConfirmButton: true,
+        confirmButtonText: "confirm",
+        showCancelButton: true,
+        cancelButtonText: "cancel",
+      }).then(fullfilled => {
+        console.log(fullfilled)
+        if(fullfilled.isConfirmed){
+          dispatch(userActions.logout())
+          window.location.reload()
+        }
+      }/* () => {
+        return MySwal.fire(<p>Shorthand works too</p>)
+      } */)
+    }
+    
   }
 
     return (

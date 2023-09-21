@@ -11,10 +11,12 @@ const {getCity} = citiesActions
 
 const Detail = () =>{
     const dispatch = useDispatch()
+    let itineraries = document.getElementById('itinList')
 
     const city = useSelector(store => store.citiesReducer.city)
     console.log(city)
     /* const [city, setCity] = useState({}) */
+    const [dispItin, setDispItin] = useState('d-none')
 
     const {id} = useParams()
     /* console.log('id es: '+id) */
@@ -38,13 +40,19 @@ const Detail = () =>{
             .catch(error => console.log(error)) 
     },[])
 
+    useEffect(()=>{
+        itineraries.className=dispItin
+    },[dispItin])
 
-    /* useEffect(() => {
-        fetch(api+`/itineraries/byCity?name=${city.name}`)
-            .then(res => res.json())
-            .then(dato => setItin(dato.response))
-    }, []) */
-
+    const handleItin = () => {
+       
+            if(itineraries.className.includes('d-none')){
+                setDispItin('d-flex')
+            } else if(itineraries.className.includes('d-flex')){
+                setDispItin('d-none')
+            }
+    }
+    
     return(
         <Hero>
             <div className="wrapper wrapperDetails">
@@ -73,11 +81,14 @@ const Detail = () =>{
                         <Anchor to='/cities' className="button m-3 p-1">
                             Return
                         </Anchor>
-                        <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        {/* <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            Itineraries
+                        </Anchor> */}
+                        <Anchor className="button m-3 p-1" onClick={handleItin}>
                             Itineraries
                         </Anchor>
                     </div>
-                    <div className="collapse navbar-collapse" id="itinList">
+                    <div /* className="collapse navbar-collapse"*/ id="itinList">
                     
                     { city.itineraries && (
                         

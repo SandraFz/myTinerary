@@ -65,10 +65,10 @@ const Cities = () => {
                     }
                 /*} else {
                         console.log(data.message);
-                }x|
+                }x|*/
                 message.className=dispMessage
                 cards.className=dispCards
-            })
+            /*  })
             .catch(err => console.log(err)); */
     }, [/* content, cards*/ index]);
 
