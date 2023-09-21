@@ -43,10 +43,10 @@ function Nav() {
                 
               <div className="divButtons w-25">
 
-                <Anchor to="/singin" className="avatar">
-                  <img src={photo} alt="" />
+                
+                  <img src={photo} alt="" className="avatar"/>
                   {/* <div className="img" style={{backgroundImage: `url(${photo}`}}></div> */}
-                </Anchor>
+                
         
                 < button className="navbar-toggler buttonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   

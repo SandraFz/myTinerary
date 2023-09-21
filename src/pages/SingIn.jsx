@@ -65,107 +65,75 @@ const SingIn = () => {
         console.log(userData)
         
         try {
-             
-            
             if(userData.email && userData.password){
                 
             
                 axios.post(api+"/in", userData)
                     .then(response => {
+
+                        if (response.data.success===false){
+
+                            console.log("sí es true")
+                            toast("Sorry, you don't have a count", {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                            });
+                        }
                        
-                        console.log(response.data)
+                        console.log(response.data.success)
                         dispatch(loginUser({response}))
                         localStorage.setItem('token', response.data.token)
                         localStorage.setItem('online', true)
                         localStorage.setItem('user', JSON.stringify(response.data))
-                        console.log(localStorage)
+                        console.log(localStorage)  
                         
+                        toast(`Wellcome, ${response.data.loginUser.name}`, {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
                     }) 
-            } else {
-                
-             /*    toast('Email or password is invalid') */
-            }
-            if (!/^[^\s\.@]+@[^\s\.@]+\.[^\s\.@]/i.test(userData.email)){
-                toast('Introduce a valid email', tostaditaStyle);
-              } else  if (!userData.password) {
-                toast('Introduce your password', tostaditaStyle);
-              }
+            } 
            
         } catch (error) {
             console.log(error)
-            toast('cualquier cosa', tostaditaStyle)
         }
     },[userData]) 
 
-    /* const handleSubmit = async () => {
-        if (!userData.email) {
-            toast('Introduce your email', tostaditaStyle);
-          } else if (!/\S+@\S+\.\S+/.test(userData.email)) {
-            toast('Introduce a valid email', tostaditaStyle);
-          } else if (!userData.password) {
-            toast('Introduce your password', tostaditaStyle);
-          }
-        
-        const formData = new FormData(form.current)
-        setUserData({
-            email: formData.get('email'),
-            password: formData.get('password')
-        })
-        console.log("handleSubmit funciona")
-    } */
-
-    const handleSubmit = /* ()=>{ */
+    const handleSubmit = 
             
         async () => {
             
             const formData = new FormData(form.current)
-            setUserData({
-                email: formData.get('email'),
-                password: formData.get('password')
-            })
+            const email = formData.get('email')
+            const pwd = formData.get('password')
+
+            if (!email) {
+                toast('Introduce your email', tostaditaStyle);
+              } else if (!/\S+@\S+\.\S+/.test(email)) {
+                toast('Introduce a valid email', tostaditaStyle);
+              } else if (!pwd) {
+                toast('Introduce your password', tostaditaStyle);
+              } else {
+                setUserData({
+                    email: email,
+                    password: pwd
+                })
+              }
             console.log("handleSubmit funciona")
-            console.log(/\S+@\S+\.\S+/.test(userData.email))
-            console.log(/^[^\s\.@]+@[^\s\.@]+\.[^\s\.@]/i.test(userData.email))
-            
-            
         }
        
-    /* } */
-
-    /* const handleSubmitGoogle = async (infoUser) => {
-        setUserData({
-            email: infoUser.email,
-            password: "Abc123"
-        })
-        
-        const res = await axios.post(api, userData)
-        console.log(res)
-        if(!res.data.newUser){
-            alert(res.data.message)  
-        }
-    } */
-
-    /* const login = useGoogleLogin({
-        
-        onSuccess: async tokenResponse =>{ 
-            console.log(tokenResponse)
-            const {data} = await axios.get(apiGoogle,{
-                headers:{
-                    Authorization: 'Bearer '+tokenResponse.access_token
-                }
-            } )
-            console.log(data)
-            setUserData({
-                email: data.email,
-                password: "Abc123"
-            })
-            console.log("handleSubmitGoogle funciona")
-            const res = await axios.get(api, userData)
-            console.log(res)
-            
-        },
-      }); */
-
 const handleSubmitGoogle = async (data) => {
 
         setUserData({
@@ -173,19 +141,8 @@ const handleSubmitGoogle = async (data) => {
             password: import.meta.env.VITE_PASSWORD_U
         })
         
-        /* const res = await axios.post(api, userData)
-            .then(console.log(res))
-            console.log("handleSubmitGoogle funciona") */
-            toast('Inicio de sesión con Google exitoso!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
+            console.log(data.email_verified)
+           
     } 
 
     return (
@@ -207,22 +164,7 @@ const handleSubmitGoogle = async (data) => {
                         <input type="text" name="password" placeholder="Password" className="form-control rounded-2 m-2 p-1" required/>
                         <Anchor onClick={handleSubmit} className="button my-2 p-2 singinButton w-100">Sing In</Anchor>
                         <p>———————— or ————————</p>
-                        {/* <button className="button">
-                            <img className="" src={google} alt="Login with Google" />
-                        </button> */}
-                            <LoginButton /*onClick={ (e) =>  {e.preventDefault(), login()}}*/  fn={handleSubmitGoogle}  logo={google} platform={'google'}/> 
-                            {/* <GoogleLogin 
-                                    onSuccess={credentialResponse => {
-                                    console.log(credentialResponse);
-                                    let infoUser = jwtDecode(credentialResponse.credential)
-                                    console.log(infoUser)
-                                    handleSubmitGoogle(userData)
-                                }}
-                                onError={() => {
-                                    console.log('Login Failed');
-                                }} */}
-                             
-                        {/* <LoginButton logo={google} platform={'Login with Google'}/> */}
+                            <LoginButton fn={handleSubmitGoogle}  logo={google} platform={'google'}/> 
                         <LoginButton logo={facebook} platform={'Login with Facebook'}/>
                     </div>
                 </form>
