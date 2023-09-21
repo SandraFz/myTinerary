@@ -9,6 +9,12 @@ const loginUser = createAction('login_user', (obj) => {
     }
 })
 
+const singUpAndLogin = createAction('singUp', (obj) => {
+    return {
+        payload:obj
+    }
+})
+
 const keepOnline = createAsyncThunk('authentication', async () => {
 
    try {
@@ -38,4 +44,4 @@ const logout = createAction('logout', () => {
     }
 })
 
-export default {loginUser, keepOnline, logout}
+export default {loginUser, keepOnline, logout, singUpAndLogin}

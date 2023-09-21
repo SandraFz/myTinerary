@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userActions.js";
 
-const {loginUser, keepOnline, logout} = userActions
+const {loginUser, keepOnline, logout,singUpAndLogin} = userActions
 
 const initialState = {
     user: {},
@@ -13,6 +13,25 @@ const userReducer = createReducer(initialState, (builder) =>{
     builder.addCase(loginUser, (store, action) => {
         console.log(action.payload.response.data)
         let userData = action.payload.response.data.loginUser
+        let sesionToken = localStorage.getItem('token')
+        console.log(sesionToken)
+        return {
+            ...store,
+            user: {
+                name:userData.name,
+                lastName:userData.lastName,
+                email:userData.email,
+                password:userData.password,
+                photo:userData.photo,
+                country:userData.country
+            },
+            token: sesionToken,
+            online: sesionToken?true:false
+        }
+    })
+    builder.addCase(singUpAndLogin, (store, action) => {
+        console.log(action.payload.response.data)
+        let userData = action.payload.response.data.newUser
         let sesionToken = localStorage.getItem('token')
         console.log(sesionToken)
         return {

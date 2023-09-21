@@ -13,12 +13,16 @@ import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { MySwal } from "../../utils/SWAL";
+import { useDispatch } from "react-redux";
+import userActions from "../store/actions/userActions.js";
+
 
 const api = 'http://localhost:8000/api/auth/up'
 
 const SingUp = () => {
 
 const form = useRef({}) 
+const dispatch = useDispatch()
 
 /* const name = useRef('')
 const lastName = useRef('')
@@ -112,20 +116,28 @@ useEffect(() => {
             && userData.password){
                 const res = axios.post(api, userData)
                 .then(response => {
-                    console.log(response)
+                    console.log(response.data)
                     /* if (response.status === 201) {
                         return <Navigate to='/singin' />;
                     } else {
                         toast('Registration failed', tostaditaStyle);
                     } */
 
-                    if(response.status === 200){
-                        toast('Registration failed', tostaditaStyle);
+                    if(response.status === 201){
+                        /* dispatch(SingUpAndLoginUser(response.data)) */
+                        localStorage.setItem('token', response.data.token)
+                        localStorage.setItem('online', true)
+                        localStorage.setItem('user', JSON.stringify(response.data))
+                        console.log(localStorage)  
+                        
+                        window.location.reload()
+                    } else {
+                        toast('This email already exists', tostaditaStyle);
+                        
                     }
-
-                    dis
+                        
+                   
                 })
-                console.log(res)
             }
             
     } catch (error) {
