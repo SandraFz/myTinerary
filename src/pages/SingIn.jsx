@@ -73,7 +73,7 @@ const SingIn = () => {
 
                         if (response.data.success===false){
 
-                            console.log("sí es true")
+                           /*  console.log("sí es true") */
                             toast("Sorry, you don't have a count", {
                                 position: "top-right",
                                 autoClose: 5000,
@@ -86,7 +86,7 @@ const SingIn = () => {
                             });
                         }
                        
-                        console.log(response.data.success)
+                        console.log(response.data)
                         dispatch(loginUser({response}))
                         localStorage.setItem('token', response.data.token)
                         localStorage.setItem('online', true)

@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userActions.js";
 
-const {loginUser, keepOnline} = userActions
+const {loginUser, keepOnline, logout} = userActions
 
 const initialState = {
     user: {},
@@ -41,6 +41,9 @@ const userReducer = createReducer(initialState, (builder) =>{
     })
     .addCase(keepOnline.rejected, (store, action) => {
         console.log(action)
+    })
+    .addCase(logout, (store, action) => {
+        return initialState
     })
 })
 

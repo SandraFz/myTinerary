@@ -8,11 +8,15 @@ import hamburguer from '../../assets/img/menu-white.png'
 import SingUp from "../../pages/SingIn";
 import { useSelector } from "react-redux";
 import avatar from '/assets/images/perfil-white.png'
+import { MySwal } from "../../../utils/SWAL";
+import { useDispatch } from "react-redux";
+import userActions from "../../store/actions/userActions";
 
 function Nav() {
 
   const online = localStorage.getItem('online')
   const user = localStorage.getItem('user')
+  const dispatch = useDispatch()
 
   const aList = ArrayList.navbar
 
@@ -31,6 +35,26 @@ function Nav() {
     }
   }, [photo])
 
+
+ 
+  function handleLogout () {
+    MySwal.fire({
+      title: <p>Do you want end session?</p>,
+      showConfirmButton: true,
+      confirmButtonText: "confirm",
+      showCancelButton: true,
+      cancelButtonText: "cancel",
+    }).then(fullfilled => {
+      console.log(fullfilled)
+      if(fullfilled.isConfirmed){
+        dispatch(userActions.logout())
+        window.location.reload()
+      }
+    }/* () => {
+      return MySwal.fire(<p>Shorthand works too</p>)
+    } */)
+  }
+
     return (
       <>
         <header>
@@ -44,7 +68,7 @@ function Nav() {
               <div className="divButtons w-25">
 
                 
-                  <img src={photo} alt="" className="avatar"/>
+                  <img src={photo} alt="" className="avatar" onClick={handleLogout}/>
                   {/* <div className="img" style={{backgroundImage: `url(${photo}`}}></div> */}
                 
         

@@ -6,6 +6,8 @@ import { store } from './store/store.js'
 import { Provider } from 'react-redux'
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import { ToastContainer } from 'react-toastify'
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
 ReactDOM.createRoot(document.getElementById('raiz')).render(
   //<React.StrictMode>

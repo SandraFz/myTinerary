@@ -31,4 +31,11 @@ const keepOnline = createAsyncThunk('authentication', async () => {
    }
 })
 
-export default {loginUser, keepOnline}
+const logout = createAction('logout', () => {
+    localStorage.clear()
+    return {
+        payload: null
+    }
+})
+
+export default {loginUser, keepOnline, logout}

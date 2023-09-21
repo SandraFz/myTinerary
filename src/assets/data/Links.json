@@ -15,11 +15,6 @@
         {
             "to":"/cities", 
             "value":"Cities"
-        },
-        {
-            "to":"/", 
-            "value":"LogOut",
-            "fn": "localStorage.clear()"
         }
     ],
     "footerLinks": {
