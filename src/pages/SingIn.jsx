@@ -91,7 +91,8 @@ const SingIn = () => {
                         localStorage.setItem('user', JSON.stringify(response.data))
                         console.log(localStorage)  
                         
-                        toast(`Wellcome, ${response.data.loginUser.name}`, {
+                        window.location.reload()
+                        /* toast(`Wellcome, ${response.data.loginUser.name}`, {
                             position: "top-right",
                             autoClose: 5000,
                             hideProgressBar: false,
@@ -100,7 +101,7 @@ const SingIn = () => {
                             draggable: true,
                             progress: undefined,
                             theme: "light",
-                        });
+                        }); */
                     }) 
             } 
            

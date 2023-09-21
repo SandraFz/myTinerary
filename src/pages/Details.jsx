@@ -40,7 +40,7 @@ const Detail = () =>{
             .catch(error => console.log(error)) 
     },[])
 
-   /*  useEffect(()=>{
+    useEffect(()=>{
         itineraries.className=dispItin
     },[dispItin])
 
@@ -88,7 +88,7 @@ const Detail = () =>{
                             Itineraries
                         </Anchor>
                     </div>
-                    <div /* className="collapse navbar-collapse"*/ id="itinList">
+                    <div /* className="collapse navbar-collapse"*/className="d-block" id="itinList">
                     
                     { city.itineraries && (
                         
