@@ -40,7 +40,7 @@ const Detail = () =>{
             .catch(error => console.log(error)) 
     },[])
 
-    useEffect(()=>{
+   /*  useEffect(()=>{
         itineraries.className=dispItin
     },[dispItin])
 
@@ -51,7 +51,7 @@ const Detail = () =>{
             } else if(itineraries.className.includes('d-flex')){
                 setDispItin('d-none')
             }
-    }
+    } */
     
     return(
         <Hero>
@@ -84,7 +84,7 @@ const Detail = () =>{
                         {/* <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             Itineraries
                         </Anchor> */}
-                        <Anchor className="button m-3 p-1" onClick={handleItin}>
+                        <Anchor className="button m-3 p-1" /* onClick={handleItin} */>
                             Itineraries
                         </Anchor>
                     </div>
