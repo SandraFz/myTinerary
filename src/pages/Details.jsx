@@ -41,7 +41,7 @@ const Detail = () =>{
     },[])
 
     useEffect(()=>{
-        itineraries.className=dispItin
+       /*  itineraries.className=dispItin */
     },[dispItin])
 
     const handleItin = () => {

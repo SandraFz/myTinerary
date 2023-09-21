@@ -66,8 +66,8 @@ const Cities = () => {
                 /*} else {
                         console.log(data.message);
                 }x|*/
-                message.className=dispMessage
-                cards.className=dispCards
+               /*  message.className=dispMessage
+                cards.className=dispCards */
             /*  })
             .catch(err => console.log(err)); */
     }, [/* content, cards*/ index]);
