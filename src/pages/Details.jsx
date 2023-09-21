@@ -41,7 +41,8 @@ const Detail = () =>{
     },[])
 
     useEffect(()=>{
-       /*  itineraries.className=dispItin */
+        itineraries.className=dispItin
+        /* console.log(dispItin) */
     },[dispItin])
 
     const handleItin = () => {
@@ -84,11 +85,11 @@ const Detail = () =>{
                         {/* <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             Itineraries
                         </Anchor> */}
-                        <Anchor className="button m-3 p-1" /* onClick={handleItin} */>
+                        <Anchor className="button m-3 p-1" onClick={handleItin}>
                             Itineraries
                         </Anchor>
                     </div>
-                    <div /* className="collapse navbar-collapse"*/className="d-block" id="itinList">
+                    <div /* className="collapse navbar-collapse"*/className="" id="itinList">
                     
                     { city.itineraries && (
                         

@@ -1,6 +1,6 @@
 .wrapper{
     margin-bottom: 6rem;
-    min-height: /* calc(100vh - 100px) */ 74vh;
+    min-height: 74vh;
     position: relative;
     justify-content: center;
     display: flex;
@@ -28,17 +28,17 @@
 
 .containerInfo{
     margin: 1rem !important;
-    position: absolute;
-    top: 3rem;
+    /* position: absolute;
+    top: 3rem; */
     margin-bottom: 2rem;
     max-height: 50vh;
     overflow: hidden;
 }
 
-.itinContainer{
+/* .itinContainer{
     position: absolute;
     top: 60vh;
-} 
+}  */
 
 .description{
     color: white;
