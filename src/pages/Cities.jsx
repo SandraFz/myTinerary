@@ -19,73 +19,28 @@ const Cities = () => {
     const counter = data.count
     const dispatch = useDispatch()
 
-    /* const [cityList, setCityList] = useState(allCities) */
-    /* const [content, setContent] = useState('') */
-    /* const [initiaList, setInitiaList] = useState([]) */
-    const [dispMessage, setDispMessage] = useState("d-none")
-    const [dispCards, setDispCards] = useState("d-flex justify-content-center flex-wrap gap-2 px-3")
+
+    /* const [dispMessage, setDispMessage] = useState("d-none")
     const {index, setIndex} = useState(counter)
 
     const message = document.getElementById('empty')
-    const cards = document.getElementById('cards-group')
+    const cards = document.getElementById('cards-group') */
 
-    /useEffect(() =>{
+    useEffect(() =>{
        
         dispatch(getAllCities({}))
         
     }, []) 
 
-   /* useEffect(() => {
-        fetch(api+(content?`/name?name=${content}`:''))
-            .then(res => res.json())
-            .then(data => setCityList(response?data.response:data.list ))
-            .catch(err => console.log(err)) 
-            console.log(content)
-            console.log(`${api}?name=${content}`)
-            
-    }, [content])  */
-
-    useEffect(() => {
-        
-        /* fetch(api+(content?`/name?name=${content}`:''))
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {*/
-
-                    if(index === 0){
-                        setDispMessage('d-block fs-4 fw-bold')
-                        setDispCards("d-none justify-content-center flex-wrap gap-2 px-3")
-                        /* console.log(data.message); */
-                    } else {
-                        setDispMessage('d-none')
-                        setDispCards("d-flex justify-content-center flex-wrap gap-2 px-3")
-                        /* console.log(data, empty);  */
-                        /* setCityList(data.response); */
-                        /* console.log(cityList) */
-                    }
-                /*} else {
-                        console.log(data.message);
-                }x|*/
-               /*  message.className=dispMessage
-                cards.className=dispCards */
-            /*  })
-            .catch(err => console.log(err)); */
-    }, [/* content, cards*/ index]);
-
-    /* useEffect(() => {
-        console.log(cityList)
-    }, [cityList]) */
-
    let inputHandle = (e) => {
         dispatch(filter({txt: e.target.value}))
     }
 
-    let buttonHandler = () => {
+    /* let buttonHandler = () => {
         
         setDispMessage('d-none')
-        setDispCards("d-flex justify-content-center flex-wrap gap-2 px-3")
-        setContent('')
-    }
+      
+    } */
 
     return (
          <Hero>
@@ -95,11 +50,15 @@ const Cities = () => {
                     
                     <form className="d-flex p-2 div-search">
                         <input type="text" onChange={inputHandle}/>
-                        <button type="button" className="xButton button" onClick={buttonHandler} >x</button>
+                        {/* <button type="button" className="xButton button p-1" onClick={buttonHandler} >x</button> */}
                     </form>
                 </div>
+
+                    {
+                        cityList.length === 0 && (<span>There's no cities whit that name.</span>)
+                    }
                     
-                <span id="empty">There's no cities whit that name.</span>
+                
 
                 <div className="d-flex justify-content-center flex-wrap gap-2 px-3" id="cards-group">
                     
