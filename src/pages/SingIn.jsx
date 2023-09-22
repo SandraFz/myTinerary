@@ -91,7 +91,7 @@ const SingIn = () => {
                         localStorage.setItem('user', JSON.stringify(response.data))
                         console.log(localStorage)  
                         
-                       /*  window.location.reload() */
+                        window.location.reload()
                         /* toast(`Wellcome, ${response.data.loginUser.name}`, {
                             position: "top-right",
                             autoClose: 5000,
