@@ -2,7 +2,7 @@
     margin-bottom: 6rem;
     min-height: 74vh;
     position: relative;
-    justify-content: center;
+    justify-content: start;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,14 +22,11 @@
     text-shadow: 1px 1px 2px var(--strong-background);
 }
 
-.wrapperDetails{
-    position: relative;
-}
 
 .containerInfo{
     margin: 1rem !important;
-    /* position: absolute;
-    top: 3rem; */
+    /* position: absolute;*/
+    /* top: 3rem;  */
     margin-bottom: 2rem;
     max-height: 50vh;
     overflow: hidden;

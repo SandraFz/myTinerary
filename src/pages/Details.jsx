@@ -16,7 +16,7 @@ const Detail = () =>{
     const city = useSelector(store => store.citiesReducer.city)
     console.log(city)
     /* const [city, setCity] = useState({}) */
-    const [dispItin, setDispItin] = useState('d-none')
+    const [dispItin, setDispItin] = useState(false)
 
     const {id} = useParams()
     /* console.log('id es: '+id) */
@@ -40,23 +40,16 @@ const Detail = () =>{
             .catch(error => console.log(error)) 
     },[])
 
-    useEffect(()=>{
-        itineraries.className=dispItin
-        /* console.log(dispItin) */
-    },[dispItin])
+   
 
     const handleItin = () => {
-       
-            if(itineraries.className.includes('d-none')){
-                setDispItin('d-flex')
-            } else if(itineraries.className.includes('d-flex')){
-                setDispItin('d-none')
-            }
+
+        setDispItin(!dispItin)
     }
     
     return(
         <Hero>
-            <div className="wrapper wrapperDetails">
+            <div className="wrapper">
                 {city && (
                     <div className="justify-content-between p-3 p-1 rounded-2 containerInfo" style={{backgroundImage: `linear-gradient(to bottom, 
                     rgba(2, 48, 71, 0.7), rgba(2, 48, 71, 0.7)), url(${city.image}`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
@@ -82,21 +75,19 @@ const Detail = () =>{
                         <Anchor to='/cities' className="button m-3 p-1">
                             Return
                         </Anchor>
-                        {/* <Anchor className="button m-3 p-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#itinList"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            Itineraries
-                        </Anchor> */}
+                    
                         <Anchor className="button m-3 p-1" onClick={handleItin}>
                             Itineraries
                         </Anchor>
                     </div>
-                    <div /* className="collapse navbar-collapse"*/className="" id="itinList">
+                    <div className={dispItin ? "itineariesCard d-flex" : "itineariesCard d-none"} id="itinList">
                     
                     { city.itineraries && (
                         
                             <ItinerariesCard itin={city.itineraries} className="itineariesCard"/>
                         
                         )}
-                        </div>
+                    </div>
                 </div>
             </div>
             
